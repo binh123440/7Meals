@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="410dp"
         android:orientation="vertical"
-        android:background="@drawable/product_1_2">
+        android:background="@drawable/product_1_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
             android:layout_marginLeft="10dp"
             android:layout_marginTop="15dp"
             android:layout_width="45dp"
             android:layout_height="45dp"
             android:background="@drawable/backgroundcam">
-            <ImageView
-                android:layout_gravity="center|bottom"
+            <ImageButton
+                android:id="@+id/BackButton"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/back_white"/>
+                android:background="@drawable/back_white" >
+            </ImageButton>
         </LinearLayout>
     </LinearLayout>
     <LinearLayout
@@ -26,114 +30,97 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="380dp"
         android:background="@drawable/botron"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contrary to popular belief"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            />
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/botron"
-            >
+            android:orientation="horizontal"
+            android:layout_gravity="center">
             <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contrary to popular belief"
+                android:layout_height="25dp"
+                android:layout_marginLeft="15dp"
+                android:text="Details"
                 android:textSize="24dp"
-                android:textStyle="bold"
-                />
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="15dp"
-                    android:text="Details"
-                    android:textSize="24dp"
-                    android:textColor="@color/gray"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"/>
-                <LinearLayout
-                    android:layout_marginLeft="180dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/nuttanggiam">
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="30dp"
-                        android:layout_height="35dp"
-                        android:background="#5EF164"
-                        android:text="-"
-                        android:textSize="16dp"
-                        android:textColor="@color/white"
-                        />
-                    <TextView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:text="2"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="9dp"
-                        android:gravity="center"
-                        android:background="@color/white"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="30dp"
-                        android:layout_height="35dp"
-                        android:background="#5EF164"
-                        android:textSize="16dp"
-                        android:text="+"
-                        android:textColor="@color/white"
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="70dp">
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 android:textColor="@color/gray"
-                android:paddingBottom="20dp"
-                android:text="Spaghetti is a traditional Italian dish made from wheat flour mixed with water, then rolled out and formed into long strands. There are many different types of spaghetti noodles, the most popular being spaghetti, fettuccine, penne, macaroni, and so on."
-                android:textSize="15dp"></TextView>
-            </ScrollView>
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="100,000 VND"
-                android:textSize="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
-                android:textStyle="bold"></TextView>
-
-
+                android:textStyle="bold"
+                android:layout_gravity="center"/>
             <LinearLayout
-                android:gravity="center"
-                android:layout_width="match_parent"
+                android:layout_marginLeft="180dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:background="@drawable/nuttanggiam">
                 <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/nutlogin"
-                    android:text="ADD TO CARD"
-                    android:textStyle="bold"
-                    android:textSize="17dp"
+                    android:id="@+id/DecreseButton"
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:background="#5EF164"
+                    android:text="-"
+                    android:textSize="16dp"
                     android:textColor="@color/white"
-                    android:drawableLeft="@drawable/cart_icon_white_1"/>
+                    />
+                <TextView
+                    android:layout_width="35dp"
+                    android:layout_height="match_parent"
+                    android:text="2"
+                    android:paddingLeft="8dp"
+                    android:paddingRight="9dp"
+                    android:gravity="center"
+                    android:background="@color/white"/>
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/IncreseButton"
+                    android:layout_width="30dp"
+                    android:layout_height="35dp"
+                    android:background="#5EF164"
+                    android:textSize="16dp"
+                    android:text="+"
+                    android:textColor="@color/white"
+                    />
             </LinearLayout>
-
-        </LinearLayout>
         </LinearLayout>
 
+        <TextView
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/gray"
+            android:paddingBottom="20dp"
+            android:text="Spaghetti is a traditional Italian dish made from wheat flour mixed with water, then rolled out and formed into long strands. There are many different types of spaghetti noodles, the most popular being spaghetti, fettuccine, penne, macaroni, and so on."
+            android:textSize="15dp"></TextView>
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:text="100,000 VND"
+            android:textSize="24dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="15dp"
+            android:textStyle="bold"></TextView>
 
 
-</FrameLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/AddToCardButton"
+                android:layout_gravity="center"
+                android:layout_width="198dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/nutlogin"
+                android:drawableLeft="@drawable/cart_icon_white_1"
+                android:text="ADD TO CARD"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+        </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,4 +7,5 @@
     <color name="gray">#939393</color>
     <color name="green">#4CAF50</color>
     <color name="lightorange">#FF9800</color>
+    <color name="yelloworange">#FFC107</color>
 </resources>
