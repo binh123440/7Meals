@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cdpm_7meals"
+    namespace = "com.example.meals"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.cdpm_7meals"
-        minSdk = 24
+        applicationId = "com.example.meals"
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
