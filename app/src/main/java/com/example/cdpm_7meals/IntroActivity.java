@@ -14,7 +14,7 @@ import com.example.cdpm_7meals.R;
 
 
 
-public class MainActivity extends AppCompatActivity {
+public class IntroActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN_TIME = 5000;
 
@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         // full screen at intro
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.intro);
 
         // load animation
         topAnima = AnimationUtils.loadAnimation(this, R.anim.top_icon_animation);
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this, AppActivity.class));
+                startActivity(new Intent(IntroActivity.this, AppActivity.class));
                 finish();
             }
         }, SPLASH_SCREEN_TIME);
