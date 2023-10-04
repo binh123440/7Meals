@@ -1,139 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-    <LinearLayout
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:background="#D9D9D9"
+    tools:context=".MainActivity">
+    <!--- Phim back -->
+    <RelativeLayout
+        android:id="@+id/back1"
         android:layout_width="match_parent"
-        android:layout_height="410dp"
-        android:orientation="vertical"
-        android:background="@drawable/product_1_2">
-        <LinearLayout
+        android:layout_height="75dp"
+        >
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="15dp"
-            android:layout_width="45dp"
-            android:layout_height="45dp"
-            android:background="@drawable/backgroundcam">
-            <ImageView
-                android:layout_gravity="center|bottom"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/back_white"/>
-        </LinearLayout>
-    </LinearLayout>
+            android:layout_marginTop="11dp"
+            android:gravity="center"
+            android:background="@drawable/back">
+            <RelativeLayout
+                android:id="@+id/back_white_"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+
+                android:background="@drawable/frame">
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <!-- Text -->
+        <TextView
+            android:id="@+id/categories"
+            android:layout_width="136dp"
+            android:layout_height="33dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="22dp"
+            android:textColor="@color/black"
+
+            android:text="Categories"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Nav -->
     <LinearLayout
+        android:id="@+id/categories2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:background="@drawable/botron"
-        android:orientation="vertical">
+        android:layout_below="@+id/back1"
+        android:background="#FFFFFF"
+        android:padding="5dp"
+        android:orientation="horizontal"
+        >
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <Button
+            android:id="@+id/btrice"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:background="@drawable/botron"
+            android:layout_weight="1"
+            android:textColor="@color/color_button"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:text="Rice"
+            android:textStyle="bold"
+            android:background="@drawable/nav"
             >
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Contrary to popular belief"
-                android:textSize="24dp"
-                android:textStyle="bold"
-                />
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="25dp"
-                    android:layout_marginLeft="15dp"
-                    android:text="Details"
-                    android:textSize="24dp"
-                    android:textColor="@color/gray"
-                    android:textStyle="bold"
-                    android:layout_gravity="center"/>
-                <LinearLayout
-                    android:layout_marginLeft="180dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:background="@drawable/nuttanggiam">
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="30dp"
-                        android:layout_height="35dp"
-                        android:background="#5EF164"
-                        android:text="-"
-                        android:textSize="16dp"
-                        android:textColor="@color/white"
-                        />
-                    <TextView
-                        android:layout_width="35dp"
-                        android:layout_height="match_parent"
-                        android:text="2"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="9dp"
-                        android:gravity="center"
-                        android:background="@color/white"/>
-                    <androidx.appcompat.widget.AppCompatButton
-                        android:layout_width="30dp"
-                        android:layout_height="35dp"
-                        android:background="#5EF164"
-                        android:textSize="16dp"
-                        android:text="+"
-                        android:textColor="@color/white"
-                        />
-                </LinearLayout>
-
-            </LinearLayout>
-            <ScrollView
-                android:layout_width="wrap_content"
-                android:layout_height="70dp">
-            <TextView
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/gray"
-                android:paddingBottom="20dp"
-                android:text="Spaghetti is a traditional Italian dish made from wheat flour mixed with water, then rolled out and formed into long strands. There are many different types of spaghetti noodles, the most popular being spaghetti, fettuccine, penne, macaroni, and so on."
-                android:textSize="15dp"></TextView>
-            </ScrollView>
-            <TextView
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="100,000 VND"
-                android:textSize="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="15dp"
-                android:textStyle="bold"></TextView>
+            </Button>
+        <Button
+            android:id="@+id/btham"
+            android:layout_width="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textColor="@color/color_button"
+            android:background="@drawable/nav2"
+            android:text="Hamburgar"
 
 
-            <LinearLayout
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <androidx.appcompat.widget.AppCompatButton
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:background="@drawable/nutlogin"
-                    android:text="ADD TO CARD"
-                    android:textStyle="bold"
-                    android:textSize="17dp"
-                    android:textColor="@color/white"
-                    android:drawableLeft="@drawable/cart_icon_white_1"/>
-            </LinearLayout>
+            >
+        </Button>
+        <Button
+            android:id="@+id/butchick"
+            android:layout_width="0dp"
+            android:background="@drawable/nav2"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/color_button"
+            android:text="Chicken"
 
-        </LinearLayout>
-        </LinearLayout>
+            >
+        </Button>
+
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/categories2"
+        android:background="#FFFFFF"
+        android:layout_marginTop="10dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rev"
+
+            android:layout_width="412dp"
+            android:layout_height="586dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="#FFFFFF">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </RelativeLayout>
+
+<!-- thanh cong cu -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/navigation"
+        android:background="@drawable/thanhcc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_nav"
+        app:itemTextColor="@color/color_nav"
+        app:itemIconTint="@color/color_nav"
+        />
 
 
-
-</FrameLayout>
+</RelativeLayout>

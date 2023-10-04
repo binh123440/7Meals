@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace = "com.example.cdpm_7meals"
+    namespace = "com.example.a7teams"
     compileSdk = 33
 
     defaultConfig {
-        applicationId = "com.example.cdpm_7meals"
-        minSdk = 24
+        applicationId = "com.example.a7teams"
+        minSdk = 17
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -19,7 +19,10 @@ android {
     buildTypes {
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {

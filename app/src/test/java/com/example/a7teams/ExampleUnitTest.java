@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.a7teams;
 
 import org.junit.Test;
 
