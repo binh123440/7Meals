@@ -11,6 +11,9 @@
         android:theme="@style/Theme.CDPM_7Meals"
         tools:targetApi="31">
         <activity
+            android:name=".ListProduct"
+            android:exported="false" />
+        <activity
             android:name=".IntroActivity"
             android:exported="false" />
         <activity
@@ -19,17 +22,12 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
     </application>
 
 </manifest>
-
-<!--
-        android:dataExtractionRules="@xml/data_extraction_rules"
-        android:fullBackupContent="@xml/backup_rules"
--->

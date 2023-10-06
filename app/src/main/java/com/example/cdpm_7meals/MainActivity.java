@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this, AppActivity.class));
+                startActivity(new Intent(MainActivity.this, ListProduct.class));
                 finish();
             }
         }, SPLASH_SCREEN_TIME);
