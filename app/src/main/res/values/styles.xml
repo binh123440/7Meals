@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="icon_button">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:background">@drawable/background_icon_button</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="icon_button1">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:padding">12dp</item>
+        <item name="android:background">@drawable/background_icon_button</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:layout_margin">3dp</item>
+    </style>
+
+    <style name="image_rounded">
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="text_bold_yellow">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/yellow2</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+</resources>
