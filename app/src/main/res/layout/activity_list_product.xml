@@ -61,47 +61,66 @@
             android:background="#FFFFFF"
             >
 
-            <Button
-                android:id="@+id/bt_rice"
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:id="@+id/item_category_home_page"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/nav"
-                android:text="Rice"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"></Button>
+                >
 
-            <Button
-                android:id="@+id/bt_ham"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/bt_rice"
-                android:layout_marginLeft="15dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/nav2"
-                android:textColor="@color/white"
-                android:text="Hamburger"
-                android:textSize="20sp"
-                android:textStyle="bold"></Button>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
 
-            <Button
-                android:id="@+id/bt_chicken"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/nav2"
-                android:textColor="@color/white"
-                android:text="Chicken"
-                android:textSize="20sp"
-                android:textStyle="bold"></Button>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_rice"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/bounder_btn_yellow"
+                        android:text="Rice"
+                        android:textColor="@color/yellow2"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/poppins_bold"
+                        >
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_ham"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/bounder_btn_yellow"
+                        android:text="Hamburger"
+                        android:textColor="@color/yellow2"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/poppins_bold"
+                        >
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_chicken"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/bounder_btn_yellow"
+                        android:text="Chicken"
+                        android:textColor="@color/yellow2"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/poppins_bold"
+                        >
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
         </RelativeLayout>
 

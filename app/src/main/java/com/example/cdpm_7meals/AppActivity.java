@@ -21,7 +21,7 @@ public class AppActivity extends AppCompatActivity {
         back_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(AppActivity.this,HomePage.class);
+                Intent intent = new Intent(AppActivity.this,ListProduct.class);
                 startActivity(intent);
             }
         });

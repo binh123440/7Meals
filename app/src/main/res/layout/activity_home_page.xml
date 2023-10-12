@@ -120,12 +120,53 @@
                     </TextView>
                 </RelativeLayout>
 
+                <ViewFlipper
+                    android:id="@+id/slide_show_home_page"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/text_category"
+                    android:flipInterval="2000"
+                    android:autoStart="true"
+                    android:inAnimation="@android:anim/slide_in_left"
+                    android:outAnimation="@android:anim/slide_out_right"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.5"
+                    >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/banner1"
+                        android:layout_gravity="center"
+                        >
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/banner2"
+                        android:layout_gravity="center"
+                        >
+                    </ImageView>
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/banner3"
+                        android:layout_gravity="center"
+                        >
+                    </ImageView>
+
+                </ViewFlipper>
+
 
                 <HorizontalScrollView
                     android:id="@+id/item_category_home_page"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/text_category"
+                    android:layout_below="@id/slide_show_home_page"
                     >
 
                     <LinearLayout

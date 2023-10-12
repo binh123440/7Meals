@@ -45,7 +45,7 @@ public class IntroActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(IntroActivity.this, ListProduct.class));
+                startActivity(new Intent(IntroActivity.this, HomePage.class));
                 finish();
             }
         }, SPLASH_SCREEN_TIME);
