@@ -30,6 +30,14 @@ android {
 
 dependencies {
 
+    //viewpager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    //Rounded image view
+    implementation("com.makeramen:roundedimageview:2.3.0")
+
+    //Meow Bottom Navigation
+    implementation("com.etebarian:meow-bottom-navigation:1.2.0")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

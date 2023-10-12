@@ -130,7 +130,7 @@
             android:layout_below="@id/categories2"
             android:background="#FFFFFF"
             android:layout_marginTop="10dp"
-            android:layout_marginBottom="80dp">
+            android:layout_marginBottom="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rev"
@@ -138,23 +138,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginStart="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="70dp"
                 android:background="#FFFFFF">
 
             </androidx.recyclerview.widget.RecyclerView>
         </RelativeLayout>
 
-        <!-- thanh cong cu -->
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/navigation"
-            android:background="@drawable/thanhcc"
-            android:layout_width="wrap_content"
+        <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:mbn_circleColor="#ffffff"
+            app:mbn_backgroundBottomColor="@color/yellow2"
+            app:mbn_countBackgroundColor="#ff6f00"
+            app:mbn_countTextColor="#ffffff"
+            app:mbn_defaultIconColor="@color/white"
+            app:mbn_rippleColor="#2f424242"
+            app:mbn_selectedIconColor="#3c415e"
+            app:mbn_shadowColor="#1f212121"
             android:layout_alignParentBottom="true"
-            app:menu="@menu/menu_nav"
-            app:itemTextColor="@color/color_nav"
-            app:itemIconTint="@color/color_nav"
             />
+
     </RelativeLayout>
 
 </RelativeLayout>
