@@ -12,10 +12,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +28,6 @@ public class ListProduct extends AppCompatActivity implements View.OnClickListen
     private GridLayoutManager gridLayoutManager;
 
     private ImageButton bt_back;
-
     private MeowBottomNavigation bottomNavigation;
 
     @Override
@@ -107,9 +104,27 @@ public class ListProduct extends AppCompatActivity implements View.OnClickListen
         FoodAdapter adapter =new FoodAdapter(getListFood());
         rcvFood.setAdapter(adapter);
 
-        btHam.setOnClickListener(this);
-        btRice.setOnClickListener(this);
-        btChick.setOnClickListener(this);
+        btHam.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View view) {
+                btHam.setTextColor(R.color.white);
+            }
+        });
+        btRice.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View view) {
+                btRice.setTextColor(R.color.white);
+            }
+        });
+        btChick.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View view) {
+                btChick.setTextColor(R.color.white);
+            }
+        });
         bt_back = findViewById(R.id.back_white);
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,17 +137,18 @@ public class ListProduct extends AppCompatActivity implements View.OnClickListen
     private List<Food> getListFood()
     {
         List<Food> list =new ArrayList<>();
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Rice));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Ham));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Ham));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Chicken));
-        list.add(new Food(R.drawable.product_1_1,"Cơm","Cơm not rice","100 tỷ",Food.Chicken));
+        list.add(new Food(R.drawable.fried_chicken_and_fried_rice_1,"Egg fried rice with chicken","Made from fried rice with eggs and served with fried chicken","80.000 VND",Food.Rice));
+        list.add(new Food(R.drawable.fried_chicken_and_fried_rice,"Fried rice with fried chicken and fat","Made from rice and chicken coated with fat for grilling","50.000 VND",Food.Rice));
+        list.add(new Food(R.drawable.burger,"Beef Burger with special sauce","With a sauce made from a blend of cream and cheese, it creates a burger with a bold Asian flavor","50.000 VND",Food.Ham));
+        list.add(new Food(R.drawable.chicken_burger,"Burger Chicken","A normal burger but the main ingredient is fried chicken","50.000 VND",Food.Ham));
+        list.add(new Food(R.drawable.fried_chicken,"Fried chicken thighs","Plump chicken thighs are soaked in egg and rolled in breadcrumbs","135.000 VND",Food.Chicken));
+        list.add(new Food(R.drawable.chicken_satay,"Grilled chicken wings with satay","Grilled with satay gives it a flavor that is both spicy and salty","135.000 VND",Food.Chicken));
+        list.add(new Food(R.drawable.fried_chicken_and_fried_rice_1,"Egg fried rice with chicken","Made from fried rice with eggs and served with fried chicken","80.000 VND",Food.Rice));
+        list.add(new Food(R.drawable.fried_chicken_and_fried_rice,"Fried rice with fried chicken and fat","Made from rice and chicken coated with fat for grilling","50.000 VND",Food.Rice));
+        list.add(new Food(R.drawable.burger,"Beef Burger with special sauce","With a sauce made from a blend of cream and cheese, it creates a burger with a bold Asian flavor","50.000 VND",Food.Ham));
+        list.add(new Food(R.drawable.chicken_burger,"Burger Chicken","A normal burger but the main ingredient is fried chicken","50.000 VND",Food.Ham));
+        list.add(new Food(R.drawable.fried_chicken,"Fried chicken thighs","Plump chicken thighs are soaked in egg and rolled in breadcrumbs","135.000 VND",Food.Chicken));
+        list.add(new Food(R.drawable.chicken_satay,"Grilled chicken wings with satay","Grilled with satay gives it a flavor that is both spicy and salty","135.000 VND",Food.Chicken));
         return  list;
     }
 

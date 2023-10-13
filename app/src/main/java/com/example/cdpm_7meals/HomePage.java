@@ -15,8 +15,13 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 
+import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
 
 public class HomePage extends AppCompatActivity {
 
@@ -26,13 +31,72 @@ public class HomePage extends AppCompatActivity {
     //implementing auto slide facility
     private Handler slideHandler = new Handler();
 
+    private MeowBottomNavigation bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page);
 
-        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+        bottomNavigation = findViewById(R.id.bottom_navigation);
+        bottomNavigation.add(new MeowBottomNavigation.Model(1,R.drawable.icon_home_bottom_navigation));
+        bottomNavigation.add(new MeowBottomNavigation.Model(2,R.drawable.icon_cart_bottom_navigation));
+        bottomNavigation.add(new MeowBottomNavigation.Model(3,R.drawable.icon_profile_bottom_navigation));
+
+        bottomNavigation.show(1,true);
+
+        bottomNavigation.setOnClickMenuListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                // YOUR CODES
+                switch (model.getId()){
+                    case 1:
+                        //Đối với những máy sử dụng các phím đa nhiệm chứ ko phải vuốt màn hình để thao tác thì sử dụng
+                        //2 hàm bên dưới sẽ set bottomnavi và các nút đa nhiệm cùng màu
+                        getWindow().setNavigationBarColor(Color.parseColor("#FDB222"));
+                        bottomNavigation.setBackgroundBottomColor(Color.parseColor("#FDB222"));
+                        //status là thanh ở trên
+                        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+                        break;
+                    case 2:
+                        getWindow().setNavigationBarColor(Color.parseColor("#FDB222"));
+                        bottomNavigation.setBackgroundBottomColor(Color.parseColor("#FDB222"));
+                        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+                        break;
+                    case 3:
+                        getWindow().setNavigationBarColor(Color.parseColor("#FDB222"));
+                        bottomNavigation.setBackgroundBottomColor(Color.parseColor("#FDB222"));
+                        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+                        break;
+                }
+                return null;
+            }
+        });
+
+        bottomNavigation.setOnShowListener(new Function1<MeowBottomNavigation.Model, Unit>() {
+            @Override
+            public Unit invoke(MeowBottomNavigation.Model model) {
+                // YOUR CODES
+                switch (model.getId()){
+                    case 1:
+                        getWindow().setNavigationBarColor(Color.parseColor("#FDB222"));
+                        bottomNavigation.setBackgroundBottomColor(Color.parseColor("#FDB222"));
+                        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+                        break;
+                    case 2:
+                        getWindow().setNavigationBarColor(Color.parseColor("#FDB222"));
+                        bottomNavigation.setBackgroundBottomColor(Color.parseColor("#FDB222"));
+                        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+                        break;
+                    case 3:
+                        getWindow().setNavigationBarColor(Color.parseColor("#FDB222"));
+                        bottomNavigation.setBackgroundBottomColor(Color.parseColor("#FDB222"));
+                        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+                        break;
+                }
+                return null;
+            }
+        });
 
         bt_all = findViewById(R.id.button_all);
         bt_all.setOnClickListener(new View.OnClickListener() {

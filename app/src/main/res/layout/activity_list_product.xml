@@ -18,6 +18,7 @@
             android:id="@+id/back1"
             android:layout_width="match_parent"
             android:layout_height="75dp"
+            android:background="@color/white"
             >
             <RelativeLayout
                 android:layout_width="wrap_content"
@@ -58,7 +59,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/back1"
-            android:background="#FFFFFF"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
             >
 
             <HorizontalScrollView
@@ -129,7 +131,6 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/categories2"
             android:background="#FFFFFF"
-            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp">
 
             <androidx.recyclerview.widget.RecyclerView
