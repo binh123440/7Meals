@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.login;
 
 import org.junit.Test;
 

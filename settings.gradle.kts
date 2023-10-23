@@ -13,6 +13,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "CDPM_7Meals"
+rootProject.name = "Login"
 include(":app")
  

@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.CDPM_7Meals"
+        android:theme="@style/Theme.Login"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
