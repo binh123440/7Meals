@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">profile</string>
+    <string-array name="list">
+        <item>I. Definition and Interpretation</item>
+
+    </string-array>
+    <string-array name="list2">
+        <item>II. General regulations</item>
+    </string-array>
+    <string-array name="list3">
+        <item>III. Delivery policy</item>
+    </string-array>
+    <string-array name="list4">
+        <item>IV. Payment methods</item>
+    </string-array>
+</resources>
