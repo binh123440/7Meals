@@ -164,6 +164,7 @@
                         </androidx.appcompat.widget.AppCompatButton>
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/button_rice"
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
@@ -177,6 +178,7 @@
                         </androidx.appcompat.widget.AppCompatButton>
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/button_ham"
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
@@ -190,6 +192,7 @@
                         </androidx.appcompat.widget.AppCompatButton>
 
                         <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/button_chicken"
                             android:layout_width="130dp"
                             android:layout_height="wrap_content"
                             android:layout_marginRight="15dp"
@@ -207,13 +210,14 @@
                 </HorizontalScrollView>
 
                 <RelativeLayout
-                    android:id="@+id/text_top_the_week"
+                    android:id="@+id/top_the_week"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/item_category_home_page"
                     android:layout_marginTop="5dp"
                     >
                     <TextView
+                        android:id="@+id/text_top_the_week"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Top The Week"
@@ -229,7 +233,7 @@
                     android:id="@+id/product_home_page"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/text_top_the_week">
+                    android:layout_below="@id/top_the_week">
 
                     <com.google.android.material.card.MaterialCardView
                         android:id="@+id/frame_product_home_page_1"

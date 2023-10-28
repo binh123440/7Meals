@@ -61,7 +61,7 @@
                     android:layout_marginLeft="15dp"
                     android:text="Details"
                     android:textSize="24dp"
-                    android:textColor="@color/gray"
+                    android:textColor="@color/black"
                     android:textStyle="bold"
                     android:layout_gravity="center"/>
                 <LinearLayout
@@ -113,16 +113,39 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true">
+                android:layout_below="@id/description_product"
+                android:layout_marginRight="10dp">
+
                 <TextView
                     android:id="@+id/price_product"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:text="135.000 VND"
+                    android:text="Price"
                     android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentLeft="true"
                     android:layout_marginTop="5dp"
                     android:layout_marginLeft="15dp"
                     android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/value_price_product"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="135.000 VND"
+                    android:textSize="24dp"
+                    android:textColor="@color/yellow2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"></TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
 
                 <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/AddToCardButton"
@@ -130,9 +153,9 @@
                     android:layout_height="wrap_content"
                     android:paddingRight="10dp"
                     android:paddingLeft="10dp"
-                    android:layout_below="@id/price_product"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:text="ADD TO CARD"
                     android:textColor="@color/white"
                     android:textSize="17dp"

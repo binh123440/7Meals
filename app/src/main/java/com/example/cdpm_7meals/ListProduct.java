@@ -1,6 +1,7 @@
 package com.example.cdpm_7meals;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -26,7 +27,6 @@ public class ListProduct extends AppCompatActivity implements View.OnClickListen
     private RecyclerView rcvFood;
     private Button btRice,btHam,btChick;
     private GridLayoutManager gridLayoutManager;
-
     private ImageButton bt_back;
     private MeowBottomNavigation bottomNavigation;
 
@@ -104,27 +104,33 @@ public class ListProduct extends AppCompatActivity implements View.OnClickListen
         FoodAdapter adapter =new FoodAdapter(getListFood());
         rcvFood.setAdapter(adapter);
 
-        btHam.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
-            @Override
-            public void onClick(View view) {
-                btHam.setTextColor(R.color.white);
-            }
-        });
         btRice.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                btRice.setTextColor(R.color.white);
+                handleClickCategory(view);
+                Unclick(btHam);
+                Unclick(btChick);
             }
         });
+
+        btHam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickCategory(view);
+                Unclick(btRice);
+                Unclick(btChick);
+            }
+        });
+
         btChick.setOnClickListener(new View.OnClickListener() {
-            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View view) {
-                btChick.setTextColor(R.color.white);
+                handleClickCategory(view);
+                Unclick(btRice);
+                Unclick(btHam);
             }
         });
+
         bt_back = findViewById(R.id.back_white);
         bt_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,7 +158,19 @@ public class ListProduct extends AppCompatActivity implements View.OnClickListen
         return  list;
     }
 
+    public void Unclick(View v){
+        Button btn = (Button) v;
+        int textColor = ContextCompat.getColor(v.getContext(), R.color.yellow2);
+        btn.setTextColor(textColor);
+        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_yellow));
+    }
 
+    public void handleClickCategory(View v){
+        Button btn = (Button) v;
+        int textColor = ContextCompat.getColor(v.getContext(), R.color.white);
+        btn.setTextColor(textColor);
+        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_category_hover));
+    };
 
     @SuppressLint("ResourceAsColor")
     @Override

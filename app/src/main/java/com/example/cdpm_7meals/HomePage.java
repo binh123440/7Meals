@@ -3,6 +3,7 @@ package com.example.cdpm_7meals;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
@@ -14,6 +15,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 
@@ -25,8 +28,10 @@ import kotlin.jvm.functions.Function1;
 
 public class HomePage extends AppCompatActivity {
 
-    private AppCompatButton bt_all;
+    private AppCompatButton bt_all,bt_rice,bt_ham,bt_chicken;
     private ViewPager2 viewPager2;
+
+    private TextView tv_topTheWeek;
 
     //implementing auto slide facility
     private Handler slideHandler = new Handler();
@@ -98,12 +103,57 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
+        tv_topTheWeek = findViewById(R.id.text_top_the_week);
+
         bt_all = findViewById(R.id.button_all);
+        bt_rice = findViewById(R.id.button_rice);
+        bt_ham = findViewById(R.id.button_ham);
+        bt_chicken = findViewById(R.id.button_chicken);
         bt_all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                handleClickCategory(view);
+                Unclick(bt_rice);
+                Unclick(bt_ham);
+                Unclick(bt_chicken);
+
+                tv_topTheWeek.setText("Top The Week");
+
                 Intent intent = new Intent(HomePage.this,ListProduct.class);
                 startActivity(intent);
+            }
+        });
+
+        bt_rice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickCategory(view);
+                Unclick(bt_all);
+                Unclick(bt_ham);
+                Unclick(bt_chicken);
+                tv_topTheWeek.setText("Rice");
+            }
+        });
+
+        bt_ham.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickCategory(view);
+                Unclick(bt_rice);
+                Unclick(bt_all);
+                Unclick(bt_chicken);
+                tv_topTheWeek.setText("Hambuger");
+            }
+        });
+
+        bt_chicken.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                handleClickCategory(view);
+                Unclick(bt_rice);
+                Unclick(bt_ham);
+                Unclick(bt_all);
+                tv_topTheWeek.setText("Chicken");
             }
         });
 
@@ -152,4 +202,18 @@ public class HomePage extends AppCompatActivity {
         });
 
     }
+
+    public void Unclick(View v){
+        Button btn = (Button) v;
+        int textColor = ContextCompat.getColor(v.getContext(), R.color.yellow2);
+        btn.setTextColor(textColor);
+        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_yellow));
+    }
+
+    public void handleClickCategory(View v){
+        Button btn = (Button) v;
+        int textColor = ContextCompat.getColor(v.getContext(), R.color.white);
+        btn.setTextColor(textColor);
+        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_category_hover));
+    };
 }
