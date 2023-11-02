@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.cdpm_7meals.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import com.example.cdpm_7meals.R;
 
 
-
-public class IntroActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private static int SPLASH_SCREEN_TIME = 5000;
 
 
     Animation topAnima, bottomAnima;
     ImageView logo, brand;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +29,7 @@ public class IntroActivity extends AppCompatActivity {
         // full screen at intro
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.intro);
+        setContentView(R.layout.activity_main);
 
         // load animation
         topAnima = AnimationUtils.loadAnimation(this, R.anim.top_icon_animation);
@@ -45,7 +45,7 @@ public class IntroActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(IntroActivity.this, Login.class));
+                startActivity(new Intent(MainActivity.this, AppActivity.class));
                 finish();
             }
         }, SPLASH_SCREEN_TIME);

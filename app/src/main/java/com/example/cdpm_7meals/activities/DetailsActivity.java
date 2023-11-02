@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.cdpm_7meals.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.example.cdpm_7meals.R;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -35,11 +37,11 @@ public class DetailsActivity extends AppCompatActivity {
             int imgResource = intent.getIntExtra("imgResource",0);
             String name = intent.getStringExtra("name");
             String des = intent.getStringExtra("dacta");
-            String price = intent.getStringExtra("gia");
+            Long price = intent.getLongExtra("gia",0);
             img.setBackgroundResource(imgResource);
             ten.setText(name);
             mota.setText(des);
-            gia.setText(price);
+            gia.setText(price/1000 + "." + "000" + " VND");
         }
 
         back_bt = findViewById(R.id.BackButton);

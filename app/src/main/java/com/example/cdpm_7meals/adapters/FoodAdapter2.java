@@ -10,23 +10,24 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cdpm_7meals.activities.DetailsActivity;
 import com.example.cdpm_7meals.R;
+import com.example.cdpm_7meals.activities.DetailsActivity;
 import com.example.cdpm_7meals.models.Food;
+import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.List;
 
-public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder> {
+public class FoodAdapter2 extends RecyclerView.Adapter<FoodAdapter2.FoodViewHolder> {
     private List<Food> ml;
 
-    public FoodAdapter(List<Food> ml) {
+    public FoodAdapter2(List<Food> ml) {
         this.ml = ml;
     }
 
     @NonNull
     @Override
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.card,parent,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.home_item,parent,false);
         return new FoodViewHolder(view);
     }
 
@@ -35,10 +36,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         private TextView name,docta,gia;
         public FoodViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgFood =itemView.findViewById(R.id.anh_food);
-            name =itemView.findViewById(R.id.name);
-            docta =itemView.findViewById(R.id.dacta);
-            gia=itemView.findViewById(R.id.gia);
+            imgFood = itemView.findViewById(R.id.imgSource);
+            name = itemView.findViewById(R.id.name_product1);
+            docta = itemView.findViewById(R.id.des_product1);
+            gia = itemView.findViewById(R.id.price_product_1);
 
         }
     }

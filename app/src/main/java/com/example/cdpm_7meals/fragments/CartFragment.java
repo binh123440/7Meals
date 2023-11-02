@@ -99,7 +99,6 @@ public class CartFragment extends Fragment {
         deliveryFeeTextView.setText(Currency.format(deliveryFee));
         totalPriceTextView.setText(Currency.format(totalPrice));
         subtotalPriceTextView.setText(Currency.format(deliveryFee + totalPrice));
-
     }
 
     private void initListView() {

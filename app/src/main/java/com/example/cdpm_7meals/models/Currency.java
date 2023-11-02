@@ -14,6 +14,6 @@ public class Currency {
         Currency.symbol = symbol;
     }
     public  static String format(double price) {
-        return symbol + String.format( "%.0f .VND",price);
+        return symbol + String.format( "%.0f VND",price);
     }
 }

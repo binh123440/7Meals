@@ -1,7 +1,6 @@
 package com.example.cdpm_7meals.fragments;
 
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,7 +18,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.example.cdpm_7meals.IntroActivity;
+import com.example.cdpm_7meals.activities.IntroActivity;
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.activities.DeleteAccountActivity;
 import com.example.cdpm_7meals.activities.ProfileActivity;

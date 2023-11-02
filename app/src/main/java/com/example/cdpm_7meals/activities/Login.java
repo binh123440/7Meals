@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.cdpm_7meals.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.cdpm_7meals.R;
 
 public class Login extends AppCompatActivity {
 
@@ -53,7 +55,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                startActivity(new Intent(Login.this,SignIn.class));
+                startActivity(new Intent(Login.this, SignIn.class));
             }
         });
 
@@ -61,7 +63,7 @@ public class Login extends AppCompatActivity {
         bt_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Login.this,AppActivity.class));
+                startActivity(new Intent(Login.this, AppActivity.class));
             }
         });
     }

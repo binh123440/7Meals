@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.cdpm_7meals.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -6,12 +6,10 @@ import androidx.appcompat.widget.AppCompatButton;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.text.method.PasswordTransformationMethod;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.cdpm_7meals.R;
 
 public class SignIn extends AppCompatActivity {
 
@@ -31,7 +29,7 @@ public class SignIn extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(SignIn.this,Login.class));
+                startActivity(new Intent(SignIn.this, Login.class));
             }
         });
 

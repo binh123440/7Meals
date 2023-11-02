@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.cdpm_7meals.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,10 +6,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.fragments.AdminFragment;
 import com.example.cdpm_7meals.fragments.CartFragment;
 import com.example.cdpm_7meals.fragments.HomeFragment;
 import com.example.cdpm_7meals.fragments.ProfileFragment;
+import com.example.cdpm_7meals.fragments.TestFragment;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;

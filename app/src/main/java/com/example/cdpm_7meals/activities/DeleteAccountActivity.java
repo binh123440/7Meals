@@ -14,7 +14,6 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 
-import com.example.cdpm_7meals.IntroActivity;
 import com.example.cdpm_7meals.R;
 
 public class DeleteAccountActivity extends AppCompatActivity {

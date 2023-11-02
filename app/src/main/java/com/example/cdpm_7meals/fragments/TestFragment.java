@@ -22,17 +22,17 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.cdpm_7meals.R;
+import com.example.cdpm_7meals.activities.ListProduct;
+import com.example.cdpm_7meals.adapters.FoodAdapter;
 import com.example.cdpm_7meals.adapters.FoodAdapter2;
 import com.example.cdpm_7meals.adapters.SlideAdapter;
 import com.example.cdpm_7meals.models.Food;
 import com.example.cdpm_7meals.models.SlideItem;
-import com.example.cdpm_7meals.activities.ListProduct;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class HomeFragment extends Fragment {
-
+public class TestFragment extends Fragment {
     AppCompatButton bt_all,bt_rice,bt_ham,bt_chicken;
     ViewPager2 viewPager2;
     TextView tv_topTheWeek;

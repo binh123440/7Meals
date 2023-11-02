@@ -1,4 +1,4 @@
-package com.example.cdpm_7meals;
+package com.example.cdpm_7meals.data;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

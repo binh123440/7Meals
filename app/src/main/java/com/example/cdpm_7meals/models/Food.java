@@ -1,14 +1,14 @@
-package com.example.cdpm_7meals.adapters;
+package com.example.cdpm_7meals.models;
 
 public class Food {
     public  static  final  int  Rice=1  , Ham=2, Chicken=3;
     private int image;
     private String name;
     private String dacta;
-    private String gia;
+    private long gia;
     private int type;
 
-    public Food(int image, String name, String dacta, String gia, int type) {
+    public Food(int image, String name, String dacta, long gia, int type) {
         this.image = image;
         this.name = name;
         this.dacta = dacta;
@@ -40,11 +40,11 @@ public class Food {
         this.dacta = dacta;
     }
 
-    public String getGia() {
+    public long getGia() {
         return gia;
     }
 
-    public void setGia(String gia) {
+    public void setGia(long gia) {
         this.gia = gia;
     }
 
