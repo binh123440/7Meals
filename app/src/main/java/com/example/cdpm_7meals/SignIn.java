@@ -11,10 +11,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SignIn extends AppCompatActivity {
 
-    private Button btn_back;
+    private TextView btn_back;
 
     private AppCompatButton btn_signin;
     @Override

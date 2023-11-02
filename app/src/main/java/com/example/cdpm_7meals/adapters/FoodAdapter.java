@@ -29,6 +29,19 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         return new FoodViewHolder(view);
     }
 
+    public class FoodViewHolder extends RecyclerView.ViewHolder {
+        private ImageView imgFood;
+        private TextView name,docta,gia;
+        public FoodViewHolder(@NonNull View itemView) {
+            super(itemView);
+            imgFood =itemView.findViewById(R.id.anh_food);
+            name =itemView.findViewById(R.id.name);
+            docta =itemView.findViewById(R.id.dacta);
+            gia=itemView.findViewById(R.id.gia);
+
+        }
+    }
+
     @Override
     public void onBindViewHolder(@NonNull FoodViewHolder holder, int position) {
         Food food = ml.get(position);
@@ -45,6 +58,10 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.itemView.getContext(), DetailsActivity.class);
+                intent.putExtra("imgResource",food.getImage());
+                intent.putExtra("name",food.getName());
+                intent.putExtra("dacta",food.getDacta());
+                intent.putExtra("gia",food.getGia());
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -59,16 +76,5 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         return 0;
     }
 
-    public class FoodViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imgFood;
-        private TextView name,docta,gia;
-        public FoodViewHolder(@NonNull View itemView) {
-            super(itemView);
-            imgFood =itemView.findViewById(R.id.anh_food);
-            name =itemView.findViewById(R.id.name);
-            docta =itemView.findViewById(R.id.dacta);
-            gia=itemView.findViewById(R.id.gia);
 
-        }
-    }
 }

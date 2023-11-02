@@ -1,6 +1,7 @@
 package com.example.cdpm_7meals;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -15,6 +16,8 @@ public class Login extends AppCompatActivity {
 
     private EditText txtPassword;
     private ImageView imgEye;
+
+    private AppCompatButton bt_login;
 
     private TextView tv_click;
     @Override
@@ -49,7 +52,16 @@ public class Login extends AppCompatActivity {
         tv_click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 startActivity(new Intent(Login.this,SignIn.class));
+            }
+        });
+
+        bt_login = findViewById(R.id.btn_signin);
+        bt_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Login.this,AppActivity.class));
             }
         });
     }

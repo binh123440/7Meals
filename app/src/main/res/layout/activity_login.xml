@@ -9,6 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/white"
         >
 
         <ImageView
@@ -16,8 +17,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/logo"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp">
+            android:layout_marginLeft="@dimen/marginLeftLogo"
+            android:layout_marginTop="@dimen/marginTopLogo">
 
         </ImageView>
 
@@ -145,7 +146,9 @@
                 android:text=" Click here"
                 android:textStyle="italic"
                 android:textColor="#FDB222"
-                android:layout_toRightOf="@+id/chu"></TextView>
+                android:layout_toRightOf="@+id/chu">
+
+            </TextView>
         </RelativeLayout>
     </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,4 +16,6 @@
     <string-array name="list4">
         <item>IV. Payment methods</item>
     </string-array>
+
+    <string name="address">Enter the delivery address, leaving blank will be your home address.</string>
 </resources>

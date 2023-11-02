@@ -14,9 +14,17 @@
             android:id="@+id/image_details_product"
             android:layout_width="match_parent"
             android:layout_height="350dp"
-            android:background="@drawable/fried_chicken"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_details_product"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="@drawable/fried_chicken">
+
+            </ImageView>
+
             <LinearLayout
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="15dp"

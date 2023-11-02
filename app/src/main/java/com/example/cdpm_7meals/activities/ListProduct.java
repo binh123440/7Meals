@@ -1,47 +1,48 @@
-package com.example.cdpm_7meals.fragments;
+package com.example.cdpm_7meals.activities;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.view.LayoutInflater;
+import android.annotation.SuppressLint;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
+import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.adapters.Food;
 import com.example.cdpm_7meals.adapters.FoodAdapter;
-import com.example.cdpm_7meals.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShoppingFragment extends Fragment {
+public class ListProduct extends AppCompatActivity {
 
-    RecyclerView rcvFood;
-    Button btRice,btHam,btChick;
-    GridLayoutManager gridLayoutManager;
-    ImageButton bt_back;
+    private RecyclerView rcvFood;
+    private Button btRice,btHam,btChick;
+    private GridLayoutManager gridLayoutManager;
+    private ImageButton bt_back;
 
-    RelativeLayout card_food;
+    private RelativeLayout card_food;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_shopping,container,false);
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_list_product);
 
-        btRice = view.findViewById(R.id.bt_rice);
-        btHam = view.findViewById(R.id.bt_ham);
-        btChick = view.findViewById(R.id.bt_chicken);
-        rcvFood = view.findViewById(R.id.rev);
-        gridLayoutManager =new GridLayoutManager(getContext(),2);
+        getWindow().setStatusBarColor(Color.parseColor("#FDB222"));
+
+        btRice = findViewById(R.id.bt_rice);
+        btHam = findViewById(R.id.bt_ham);
+        btChick = findViewById(R.id.bt_chicken);
+        rcvFood = findViewById(R.id.rev);
+        gridLayoutManager = new GridLayoutManager(ListProduct.this,2);
         rcvFood.setLayoutManager(gridLayoutManager);
-        FoodAdapter adapter =new FoodAdapter(getListFood());
+        FoodAdapter adapter = new FoodAdapter(getListFood());
         rcvFood.setAdapter(adapter);
 
         btRice.setOnClickListener(new View.OnClickListener() {
@@ -71,10 +72,11 @@ public class ShoppingFragment extends Fragment {
             }
         });
 
-        bt_back = view.findViewById(R.id.back_white);
-
-        // Inflate the layout for this fragment
-        return view;
+        bt_back = findViewById(R.id.back_white);
+        bt_back.setOnClickListener(view -> {
+            super.onBackPressed();
+            onBackPressed();
+        });
     }
 
     private List<Food> getListFood()

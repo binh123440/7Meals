@@ -1,5 +1,6 @@
 package com.example.cdpm_7meals.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.SlideAdapter;
 import com.example.cdpm_7meals.SlideItem;
+import com.example.cdpm_7meals.activities.ListProduct;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +31,6 @@ public class HomeFragment extends Fragment {
 
     AppCompatButton bt_all,bt_rice,bt_ham,bt_chicken;
     ViewPager2 viewPager2;
-
     TextView tv_topTheWeek;
 
     //implementing auto slide facility
@@ -57,6 +58,8 @@ public class HomeFragment extends Fragment {
                 Unclick(bt_ham);
                 Unclick(bt_chicken);
                 tv_topTheWeek.setText("Top The Week");
+
+                startActivity(new Intent(getContext(), ListProduct.class));
             }
         });
 

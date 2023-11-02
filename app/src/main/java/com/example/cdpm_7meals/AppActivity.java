@@ -7,9 +7,9 @@ import android.os.Bundle;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.example.cdpm_7meals.fragments.AdminFragment;
+import com.example.cdpm_7meals.fragments.CartFragment;
 import com.example.cdpm_7meals.fragments.HomeFragment;
 import com.example.cdpm_7meals.fragments.ProfileFragment;
-import com.example.cdpm_7meals.fragments.ShoppingFragment;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
@@ -104,7 +104,7 @@ public class AppActivity extends AppCompatActivity {
                     .beginTransaction()
                     .replace(R.id.App,
                             item.getId() == HOME ? HomeFragment.class
-                                    : (item.getId() == CART ? ShoppingFragment.class
+                                    : (item.getId() == CART ? CartFragment.class
                                     : item.getId() == PROFILE ? ProfileFragment.class
                                     : AdminFragment.class)
                             , null)
