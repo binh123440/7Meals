@@ -11,10 +11,10 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
-
 import com.example.cdpm_7meals.R;
-
-
+import com.microsoft.appcenter.AppCenter;
+import com.microsoft.appcenter.analytics.Analytics;
+import com.microsoft.appcenter.crashes.Crashes;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
+        AppCenter.start(getApplication(), "dce3188f-1fbc-425a-acb3-8a5d18a59bbb",
+                Analytics.class, Crashes.class);
 
         // load animation
         topAnima = AnimationUtils.loadAnimation(this, R.anim.top_icon_animation);
