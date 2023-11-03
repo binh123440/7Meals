@@ -9,7 +9,7 @@ android {
     defaultConfig {
         applicationId = "com.example.cdpm_7meals"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -39,9 +39,6 @@ dependencies {
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    val appCenterSdkVersion = "4.4.5"
-    implementation ("com.microsoft.appcenter:appcenter-analytics:{appCenterSdkVersion}")
-    implementation ("com.microsoft.appcenter:appcenter-crashes:{appCenterSdkVersion}")
     implementation("com.microsoft.appcenter:appcenter:4.4.5")
     implementation("com.microsoft.appcenter:appcenter-analytics:4.4.5")
     implementation("com.microsoft.appcenter:appcenter-crashes:4.4.5")
