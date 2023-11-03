@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
-        AppCenter.start(getApplication(), "5a901503-35fe-4569-872e-b9707e64b3db",
+        AppCenter.start(getApplication(), "dce3188f-1fbc-425a-acb3-8a5d18a59bbb",
                 Analytics.class, Crashes.class);
 
         // load animation
