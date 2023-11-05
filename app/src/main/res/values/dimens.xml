@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginLeftLogo">20dp</dimen>
+    <dimen name="marginTopLogo">20dp</dimen>
+    <dimen name="pad">10dp</dimen>
+    <dimen name="text_xl">25sp</dimen>
+    <dimen name="text_small">12.5sp</dimen>
+    <dimen name="text_large">18sp</dimen>
+</resources>

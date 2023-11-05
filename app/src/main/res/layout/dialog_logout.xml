@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/diag"
+        android:padding="26dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:text="Đăng Xuất"
+                    android:textSize="23sp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/text3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/text2"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="center"
+                    android:text="Bạn có muốn đăng xuất ra khỏi App?">
+
+                </TextView>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text"
+                android:layout_margin="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btno"
+                    android:textAllCaps="false"
+                    android:layout_width="120dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/phim"
+                    android:gravity="center"
+                    android:textSize="14sp"
+                    android:text="Hủy"
+                    android:textColor="@color/white">
+
+                </androidx.appcompat.widget.AppCompatButton>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btyes"
+                    android:layout_width="120dp"
+                    android:layout_height="42dp"
+                    android:textAllCaps="false"
+                    android:layout_toRightOf="@+id/btno"
+                    android:background="@drawable/dangxuat"
+                    android:gravity="center"
+                    android:textColor="#5F5F5F"
+                    android:textSize="14sp"
+                    android:text="Đăng xuất"></androidx.appcompat.widget.AppCompatButton>
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+</RelativeLayout>
