@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.cdpm_7meals"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.cdpm_7meals"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -29,6 +29,16 @@ android {
 }
 
 dependencies {
+
+    //viewpager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    //Rounded image view
+    implementation("com.makeramen:roundedimageview:2.3.0")
+
+    //Meow Bottom Navigation
+    implementation("com.etebarian:meow-bottom-navigation:1.2.0")
+
+    implementation("com.airbnb.android:lottie:4.1.0")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")

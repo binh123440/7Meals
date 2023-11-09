@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/bt"
+            android:layout_width="match_parent"
+            android:layout_height="180dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/frame_image_profile"
+                android:layout_width="66dp"
+                android:layout_height="66dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="60dp"
+                android:foreground="@drawable/hinhtron_homepage_avatar"
+                app:cardBackgroundColor="@color/green"
+                app:cardCornerRadius="33dp">
+
+                <ImageView
+                    android:id="@+id/image_profile"
+                    android:layout_width="66dp"
+                    android:layout_height="66dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/anh_quyen">
+
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_toRightOf="@+id/frame_image_profile"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:text="Full name"
+                    android:layout_marginLeft="30dp"
+                    android:textSize="24sp"
+                    android:textStyle="bold"
+                    android:layout_height="wrap_content">
+                </TextView>
+            </RelativeLayout>
+        </RelativeLayout>
+        <!-- main -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_below="@+id/bt"
+            android:layout_height="match_parent">
+            <ListView
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:layout_margin="10dp"
+                android:id="@+id/list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </ListView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</FrameLayout>

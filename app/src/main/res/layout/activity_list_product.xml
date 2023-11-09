@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ListProduct">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:id="@+id/back1"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:background="@color/white"
+            >
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:background="@drawable/backgroundcam">
+                <ImageButton
+                    android:id="@+id/back_white"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/frame"
+                    android:backgroundTint="@color/white">
+                </ImageButton>
+            </RelativeLayout>
+
+            <!-- Text -->
+            <TextView
+                android:id="@+id/categories"
+                android:layout_width="136dp"
+                android:layout_height="33dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="22dp"
+                android:textColor="@color/black"
+
+                android:text="Categories"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/categories2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/back1"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
+            >
+
+            <HorizontalScrollView
+                android:id="@+id/item_category_home_page"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    >
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_rice"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/bounder_btn_yellow"
+                        android:text="Rice"
+                        android:textColor="@color/yellow2"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/poppins_bold"
+                        >
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_ham"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/bounder_btn_yellow"
+                        android:text="Hamburger"
+                        android:textColor="@color/yellow2"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/poppins_bold"
+                        >
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/bt_chicken"
+                        android:layout_width="130dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/bounder_btn_yellow"
+                        android:text="Chicken"
+                        android:textColor="@color/yellow2"
+                        android:textAllCaps="false"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/poppins_bold"
+                        >
+                    </androidx.appcompat.widget.AppCompatButton>
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/categories2"
+            android:background="#FFFFFF"
+            android:layout_marginBottom="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rev"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:background="#FFFFFF">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>
