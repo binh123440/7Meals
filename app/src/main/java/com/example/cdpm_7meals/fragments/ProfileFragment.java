@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.view.Gravity;
@@ -24,11 +25,23 @@ import com.example.cdpm_7meals.activities.DeleteAccountActivity;
 import com.example.cdpm_7meals.activities.ProfileActivity;
 import com.example.cdpm_7meals.activities.RulesActivity;
 import com.example.cdpm_7meals.adapters.ProfileAdapter;
+import com.example.cdpm_7meals.models.Profile;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ProfileFragment extends Fragment {
 
     ListView list;
     String List[] = {"Profile","Request account deletion","Terms and Policies","Log out"};
+    Date date;
+    String name,phonenumber,gender,birthday,address,username,password;
 
     int flags[]={R.drawable.iconavatar,R.drawable.caidat,R.drawable.warningoctagon,R.drawable.signout};
     @Override
@@ -45,12 +58,25 @@ public class ProfileFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 switch (i)
                 {
-                    case 0: Intent myintent = new Intent(getContext(), ProfileActivity.class);
-                        startActivity(myintent);break;
-                    case 1: Intent myintent2 = new Intent(getContext(), DeleteAccountActivity.class);
-                        startActivity(myintent2);break;
-                    case 2: Intent myintent3 = new Intent(getContext(), RulesActivity.class);
-                        startActivity(myintent3);break;
+                    case 0:
+                        Intent myintent = new Intent(getContext(), ProfileActivity.class);
+                        myintent.putExtra("name","La Thế Quyền");
+                        myintent.putExtra("phonenumber","0563499836");
+                        myintent.putExtra("gender","nam");
+                        myintent.putExtra("birthday","28-09-2023 10:00:00");
+                        myintent.putExtra("address","48 Cao Thắng");
+                        myintent.putExtra("username","lathequyen");
+                        myintent.putExtra("password","lathequyen");
+                        startActivity(myintent);
+                        break;
+                    case 1:
+                        Intent myintent2 = new Intent(getContext(), DeleteAccountActivity.class);
+                        startActivity(myintent2);
+                        break;
+                    case 2:
+                        Intent myintent3 = new Intent(getContext(), RulesActivity.class);
+                        startActivity(myintent3);
+                        break;
                     case 3: OpenDia(Gravity.CENTER); break;
 
 
@@ -100,5 +126,25 @@ public class ProfileFragment extends Fragment {
             }
         });
         dialog.show();
+    }
+
+    private void GetValue(String name,String phonenumber,String gender,String birthday,String address,String username,String password){
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("profiles/Lê Ngọc Hào");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    name = snapshot.child("name").getValue(String.class);
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        })
     }
 }
