@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "367383710551",
+    "firebase_url": "https://cdpm-7meals-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "cdpm-7meals",
+    "storage_bucket": "cdpm-7meals.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:367383710551:android:1553c0f343bde8453dcc12",
+        "android_client_info": {
+          "package_name": "com.example.cdpm_7meals"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-dEtG1XsRRrXxZU9YWAS8Cuma7pYMv5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
