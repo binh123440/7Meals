@@ -16,7 +16,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cdpm_7meals.R;
+import com.example.cdpm_7meals.data.UserSingleton;
 import com.example.cdpm_7meals.fragments.HomeFragment;
+import com.example.cdpm_7meals.fragments.ProfileFragment;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -102,9 +104,10 @@ public class Login extends AppCompatActivity {
                                 if(getPass.equals(Password)){
                                     Toast.makeText(Login.this,"Successfully Logged in", Toast.LENGTH_LONG).show();
                                     Intent intent = new Intent(Login.this, AppActivity.class);
-                                    intent.putExtra("phonenumber",phoneNum);
                                     startActivity(intent);
-                                    finish();
+
+                                    UserSingleton userSingleton = UserSingleton.getInstance();
+                                    userSingleton.setUsername(phoneNum);
                                 }
                                 else {
                                     Toast.makeText(Login.this,"Wrong password !", Toast.LENGTH_LONG).show();

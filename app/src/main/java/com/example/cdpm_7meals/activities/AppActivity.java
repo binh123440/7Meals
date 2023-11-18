@@ -17,7 +17,7 @@ import com.example.cdpm_7meals.fragments.TestFragment;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 
-public class AppActivity extends AppCompatActivity {
+public class AppActivity extends AppCompatActivity{
 
     private MeowBottomNavigation bottomNavigation;
 
@@ -27,24 +27,6 @@ public class AppActivity extends AppCompatActivity {
         setContentView(R.layout.activity_app);
 
         CreateBottomNavigation();
-
-        Intent intent = getIntent();
-        if (intent != null) {
-            String phoneNum = intent.getStringExtra("phonenumber");
-            HomeFragment homeFragment = new HomeFragment();
-            Bundle bundle = new Bundle();
-            bundle.putString("phonenumber",phoneNum);
-            homeFragment.setArguments(bundle);
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.App, homeFragment).commit();
-
-            ProfileFragment profileFragment = new ProfileFragment();
-            Bundle bundle1 = new Bundle();
-            bundle1.putString("phonenumber",phoneNum);
-            profileFragment.setArguments(bundle1);
-
-            getSupportFragmentManager().beginTransaction().replace(R.id.App, profileFragment).commit();
-        }
     }
 
     protected void CreateBottomNavigation() {

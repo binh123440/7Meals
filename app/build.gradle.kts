@@ -31,6 +31,7 @@ android {
 
 dependencies {
 
+    implementation("com.squareup.picasso:picasso:2.8")
     //viewpager2
     implementation("androidx.viewpager2:viewpager2:1.0.0")
     //Rounded image view

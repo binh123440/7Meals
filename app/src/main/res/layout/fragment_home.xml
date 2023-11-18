@@ -41,6 +41,7 @@
                         app:cardCornerRadius="25dp">
 
                         <ImageView
+                            android:id="@+id/ava_home"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_gravity="center"

@@ -42,10 +42,10 @@ public class ProfileAdapter2 extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        convertView	=	inflter.inflate(R.layout.list_file, null);
-        TextView tieude = (TextView) convertView.findViewById(R.id.tieude);
+        convertView	= inflter.inflate(R.layout.list_file, null);
+        TextView tieude = convertView.findViewById(R.id.tieude);
         tieude.setText(List[position]);
-        EditText edt = (EditText) convertView.findViewById(R.id.edittext);
+        EditText edt = convertView.findViewById(R.id.edittext);
         edt.setText(ListValue[position]);
         return convertView;
     }

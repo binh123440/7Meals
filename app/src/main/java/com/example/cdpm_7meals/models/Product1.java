@@ -1,16 +1,16 @@
 package com.example.cdpm_7meals.models;
 
-public class Product {
+public class Product1 {
     private int id;
-    private int imageSrc;
+    private String imageSrc;
     private String name;
     private String desc;
     private long price;
     private int categoryID;
 
-    public Product(){}
+    public Product1(){}
 
-    public Product(int id, int imageSrc, String name, String desc , long price, int categoryID) {
+    public Product1(int id, String imageSrc, String name, String desc , long price, int categoryID) {
         this.id = id;
         this.imageSrc = imageSrc;
         this.name = name;
@@ -27,11 +27,11 @@ public class Product {
         this.id = id;
     }
 
-    public int getImageSrc() {
+    public String getImageSrc() {
         return imageSrc;
     }
 
-    public void setImageSrc(int imageSrc) {
+    public void setImageSrc(String imageSrc) {
         this.imageSrc = imageSrc;
     }
 

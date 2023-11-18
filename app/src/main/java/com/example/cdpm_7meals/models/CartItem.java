@@ -1,6 +1,6 @@
 package com.example.cdpm_7meals.models;
 
-public class CartItem extends Product{
+public class CartItem extends Product1{
 
     private int quantity;
     public CartItem() {

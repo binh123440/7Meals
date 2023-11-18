@@ -12,13 +12,7 @@ import android.widget.ImageView;
 
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.data.Data;
-import com.example.cdpm_7meals.data.UpData;
-import com.example.cdpm_7meals.models.Profile;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
@@ -39,7 +33,9 @@ public class IntroActivity extends AppCompatActivity {
 
         setContentView(R.layout.intro);
 
-        new Data().Add_ProfileData();
+        new Data().Add_Data_Nam();
+        new Data().Add_Data_Binh();
+        new Data().Add_Data_Food();
 
         // load animation
         topAnima = AnimationUtils.loadAnimation(this, R.anim.top_icon_animation);

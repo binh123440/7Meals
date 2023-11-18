@@ -20,6 +20,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -30,12 +31,14 @@ import com.example.cdpm_7meals.activities.ProfileActivity;
 import com.example.cdpm_7meals.activities.RulesActivity;
 import com.example.cdpm_7meals.adapters.ProfileAdapter;
 import com.example.cdpm_7meals.data.Data;
+import com.example.cdpm_7meals.data.UserSingleton;
 import com.example.cdpm_7meals.models.Profile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -43,13 +46,10 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class ProfileFragment extends Fragment {
-
+    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
     ListView list;
     String List[] = {"Profile","Request account deletion","Terms and Policies","Log out"};
-    Date date;
-    String name,phonenumber,gender,birthday,address,username,password;
-
-    String loginPhoneNum;
+    ImageView img_profile;
     TextView tv_fullname;
 
     int flags[]={R.drawable.iconavatar,R.drawable.caidat,R.drawable.warningoctagon,R.drawable.signout};
@@ -60,6 +60,7 @@ public class ProfileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile,container,false);
 
         tv_fullname = view.findViewById(R.id.full_name);
+        img_profile = view.findViewById(R.id.image_profile);
 
         list = view.findViewById(R.id.list);
         ProfileAdapter adapter = new ProfileAdapter(getContext(),List,flags);
@@ -73,43 +74,27 @@ public class ProfileFragment extends Fragment {
                         Intent myintent = new Intent(getContext(), ProfileActivity.class);
                         ArrayList<String> list = new ArrayList<>();
 
-                        Bundle bundle = getArguments();
-                        if (bundle != null) {
-                            String username = bundle.getString("phonenumber");
-                            new Data().GetDataUser(loginPhoneNum, new Data.OnDataReceivedListener() {
-                                @Override
-                                public void onDataReceived(ArrayList<String> data) {
-                                    if (!data.isEmpty()) {
-                                        // Đảm bảo rằng danh sách không rỗng trước khi truy cập phần tử đầu tiên
-                                        loginPhoneNum = data.get(0);
-                                        tv_fullname.setText(loginPhoneNum);
-                                        // Tiếp tục xử lý dữ liệu theo nhu cầu của bạn
-                                    } else {
-                                        Log.e(TAG, "Danh sách dữ liệu rỗng.");
-                                    }
-                                }
-                            });
-                        }
-
-                        new Data().GetDataProfile(loginPhoneNum, new Data.OnDataReceivedListener() {
+                        UserSingleton userSingleton = UserSingleton.getInstance();
+                        String phoneNum = userSingleton.getUsername();
+                        myRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
-                            public void onDataReceived(ArrayList<String> data) {
-                                if (!data.isEmpty()) {
-                                    // Đảm bảo rằng danh sách không rỗng trước khi truy cập phần tử đầu tiên
-                                    myintent.putExtra("name",data.get(0));
-                                    myintent.putExtra("phonenumber",data.get(1));
-                                    myintent.putExtra("gender",data.get(2));
-                                    myintent.putExtra("birthday",data.get(3));
-                                    myintent.putExtra("address",data.get(4));
-                                    myintent.putExtra("username",data.get(5));
-                                    myintent.putExtra("password",data.get(6));
-                                    startActivity(myintent);
-                                    // Tiếp tục xử lý dữ liệu theo nhu cầu của bạn
-                                } else {
-                                    Log.e(TAG, "Danh sách dữ liệu rỗng.");
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                if(snapshot.hasChild(phoneNum)){
+                                    String img = snapshot.child(phoneNum).child("image").getValue(String.class);
+                                    String name = snapshot.child(phoneNum).child("lastname").getValue(String.class);
+                                    //Picasso.get().load(img).into(img_profile);
+                                    tv_fullname.setText(name);
                                 }
                             }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
                         });
+
+                        startActivity(myintent);
                         break;
                     case 1:
                         Intent myintent2 = new Intent(getContext(), DeleteAccountActivity.class);
@@ -169,5 +154,4 @@ public class ProfileFragment extends Fragment {
         });
         dialog.show();
     }
-
 }

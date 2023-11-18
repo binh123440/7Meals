@@ -21,31 +21,43 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.cdpm_7meals.R;
+import com.example.cdpm_7meals.activities.AppActivity;
+import com.example.cdpm_7meals.activities.Login;
 import com.example.cdpm_7meals.adapters.FoodAdapter2;
 import com.example.cdpm_7meals.adapters.SlideAdapter;
 import com.example.cdpm_7meals.data.Data;
+import com.example.cdpm_7meals.data.UserSingleton;
 import com.example.cdpm_7meals.models.Food;
 import com.example.cdpm_7meals.models.SlideItem;
 import com.example.cdpm_7meals.activities.ListProduct;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HomeFragment extends Fragment {
 
+    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
     AppCompatButton bt_all,bt_rice,bt_ham,bt_chicken;
     ViewPager2 viewPager2;
     TextView tv_topTheWeek, hello_text;
-
     //implementing auto slide facility
     Handler slideHandler = new Handler();
     RecyclerView rcvProduct;
     GridLayoutManager gridLayoutManager;
-    RelativeLayout product_homepage;
+    ImageView img_ava;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -60,24 +72,29 @@ public class HomeFragment extends Fragment {
         rcvProduct.setAdapter(foodAdapter);
 
         tv_topTheWeek = view.findViewById(R.id.text_top_the_week);
+        img_ava = view.findViewById(R.id.ava_home);
 
         hello_text = view.findViewById(R.id.hello_text);
-        Bundle bundle = getArguments();
-        if (bundle != null) {
-            String username = bundle.getString("phonenumber");
-            new Data().GetDataUser(username, new Data.OnDataReceivedListener() {
-                @Override
-                public void onDataReceived(ArrayList<String> data) {
-                    if (!data.isEmpty()) {
-                        // Đảm bảo rằng danh sách không rỗng trước khi truy cập phần tử đầu tiên
-                        hello_text.setText(data.get(0));
-                        // Tiếp tục xử lý dữ liệu theo nhu cầu của bạn
-                    } else {
-                        Log.e(TAG, "Danh sách dữ liệu rỗng.");
-                    }
+        UserSingleton userSingleton = UserSingleton.getInstance();
+        String phoneNum = userSingleton.getUsername();
+        myRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                if(snapshot.hasChild(phoneNum)){
+                    String name = snapshot.child(phoneNum).child("lastname").getValue(String.class);
+                    String img = snapshot.child(phoneNum).child("image").getValue(String.class);
+                    hello_text.setText("Hello " + name);
+                    //Picasso.get().load(img).into(img_ava);
                 }
-            });
-        }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
 
         bt_all = view.findViewById(R.id.button_all);
         bt_rice = view.findViewById(R.id.button_rice);
