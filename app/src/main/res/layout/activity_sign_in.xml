@@ -42,170 +42,179 @@
                         android:layout_width="match_parent"
                         android:layout_height="510dp"
                         android:background="@color/white">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="5dp"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
                                 android:text="Create an account"
                                 android:textSize="24dp"
-                                android:textStyle="bold"
-                                />
+                                android:textStyle="bold" />
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="First name"
                                 android:textSize="15dp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/FirstNamelay"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginRight="20dp"
-                                >
+                                android:layout_marginRight="20dp">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/FirstNamein"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
-                                    android:hint="Please enter your first name"
-                                    />
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your first name" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="Last name"
                                 android:textSize="15sp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/LastNamelay"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginRight="20dp"
-                                >
+                                android:layout_marginRight="20dp">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/LastNamein"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
-                                    android:hint="Please enter your last name"
-                                    />
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your last name" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="Phone number"
                                 android:textSize="15sp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/phoneNumberlay2"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginRight="20dp"
-                                >
+                                android:layout_marginRight="20dp">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/phoneNumberin2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
-                                    android:hint="Please enter your phone number"
-                                    />
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your phone number" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="Address"
                                 android:textSize="15sp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/AddressLay"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginRight="20dp"
-                                >
+                                android:layout_marginRight="20dp">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/AddressIn"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
-                                    android:hint="Please enter your address"
-                                    />
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your address" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="Gender"
                                 android:textSize="15sp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/GenderLay"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginRight="20dp"
-                                >
+                                android:layout_marginRight="20dp">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/GenderIn"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
-                                    android:hint="Please enter your gender"
-                                    />
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your gender" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="BirthDay"
                                 android:textSize="15sp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/BirthdayLay"
                                 android:layout_width="match_parent"
                                 android:layout_height="60dp"
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
-                                android:layout_marginRight="20dp"
-                                >
+                                android:layout_marginRight="20dp">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/BirthdayIn"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
-                                    android:hint="Please enter your birthday"
-                                    />
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your birthday" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="Password"
                                 android:textSize="15sp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/enterPasswordLayout"
                                 android:layout_width="match_parent"
@@ -213,24 +222,26 @@
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="20dp"
-                                app:passwordToggleEnabled="true"
-                                >
+                                app:passwordToggleEnabled="true">
+
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/enterPassword"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Please enter your password"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
+                                    android:gravity="center_vertical"
+                                    android:hint="Please enter your password"
                                     android:inputType="textPassword" />
                             </com.google.android.material.textfield.TextInputLayout>
+
                             <TextView
-                                android:layout_marginLeft="20dp"
-                                android:layout_marginTop="20dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
                                 android:text="Confirm Password"
                                 android:textSize="15dp"></TextView>
+
                             <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/enterPassword2Layout"
                                 android:layout_width="match_parent"
@@ -238,17 +249,85 @@
                                 android:layout_marginLeft="20dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginRight="20dp"
-                                app:passwordToggleEnabled="true"
-                                >
+                                app:passwordToggleEnabled="true">
                                 <com.google.android.material.textfield.TextInputEditText
                                     android:id="@+id/enterPassword2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:hint="Please confirm your password"
-                                    android:gravity="center_vertical"
                                     android:background="@drawable/edittextlogin"
+                                    android:gravity="center_vertical"
+                                    android:hint="Please confirm your password"
                                     android:inputType="textPassword" />
                             </com.google.android.material.textfield.TextInputLayout>
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="20dp"
+                                android:text="Choose your image"
+                                android:textSize="15dp"></TextView>
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="60dp"
+                                android:layout_marginTop="5dp"
+                                android:orientation="horizontal">
+
+                                <EditText
+                                    android:id="@+id/enterImage"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="60dp"
+                                    android:layout_weight="1"
+                                    android:layout_marginLeft="20dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/edittextlogin"
+                                    android:hint="Choose your image"
+                                    android:textColorHint="@color/gray_edt"
+                                    >
+                                </EditText>
+
+                                <LinearLayout
+                                    android:layout_width="60dp"
+                                    android:layout_height="60dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/bt_add_img"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_gravity="right"
+                                    android:gravity="center">
+
+                                    <androidx.appcompat.widget.AppCompatButton
+                                        android:id="@+id/bt_chooseImg"
+                                        android:layout_width="40dp"
+                                        android:layout_height="40dp"
+                                        android:background="@drawable/add_icon"
+                                        >
+
+                                    </androidx.appcompat.widget.AppCompatButton>
+                                </LinearLayout>
+
+                            </LinearLayout>
+                            <ProgressBar
+                                android:id="@+id/probar"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="20dp"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginTop="5dp"
+                                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                                >
+
+                            </ProgressBar>
+                            <TextView
+                                android:id="@+id/tv_showImg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:layout_marginRight="20dp"
+                                android:textColor="@color/yellow2"
+                                android:text="Click to view your image"
+                                >
+
+                            </TextView>
                         </LinearLayout>
                     </ScrollView>
                 </LinearLayout>
@@ -259,6 +338,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
             android:layout_below="@id/scroll_input">
             <LinearLayout
                 android:id="@+id/buttonsignin"
