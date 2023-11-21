@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/image_details_product"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/img_details_product"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="@drawable/fried_chicken">
+
+            </ImageView>
+
+            <LinearLayout
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="15dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:background="@drawable/backgroundcam">
+                <ImageButton
+                    android:id="@+id/BackButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/back_white" >
+                </ImageButton>
+            </LinearLayout>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/botron"
+            android:layout_below="@id/image_details_product"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <TextView
+                android:id="@+id/name_product"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fried Chicken Thighs"
+                android:textSize="24dp"
+                android:textStyle="bold"
+                />
+            <RelativeLayout
+                android:id="@+id/details_product"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/name_product"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="15dp"
+                    android:text="Details"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/nuttanggiam">
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/DecreseButton"
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:background="@color/yellow2"
+                        android:text="-"
+                        android:textSize="16dp"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="35dp"
+                        android:layout_height="match_parent"
+                        android:text="2"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="9dp"
+                        android:gravity="center"
+                        android:background="@color/white"/>
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/IncreseButton"
+                        android:layout_width="30dp"
+                        android:layout_height="35dp"
+                        android:background="@color/yellow2"
+                        android:textSize="16dp"
+                        android:text="+"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/description_product"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/details_product"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/gray"
+                android:text="Plump chicken thighs are soaked in egg and rolled in breadcrumbs"
+                android:textSize="15dp"></TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description_product"
+                android:layout_marginRight="10dp">
+
+                <TextView
+                    android:id="@+id/price_product"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Price"
+                    android:textSize="24dp"
+                    android:textColor="@color/black"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"></TextView>
+
+                <TextView
+                    android:id="@+id/value_price_product"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="135.000 VND"
+                    android:textSize="24dp"
+                    android:textColor="@color/yellow2"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:textStyle="bold"></TextView>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/AddToCardButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingLeft="10dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="ADD TO CARD"
+                    android:textColor="@color/white"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    android:background="@drawable/nutlogin"
+                    android:drawableLeft="@drawable/cart_icon_white_1"
+                    >
+
+                </androidx.appcompat.widget.AppCompatButton>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
