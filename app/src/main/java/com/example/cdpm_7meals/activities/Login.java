@@ -108,6 +108,7 @@ public class Login extends AppCompatActivity {
 
                                     UserSingleton userSingleton = UserSingleton.getInstance();
                                     userSingleton.setUsername(phoneNum);
+                                    userSingleton.setNameimg(phoneNum);
                                 }
                                 else {
                                     Toast.makeText(Login.this,"Wrong password !", Toast.LENGTH_LONG).show();

@@ -1,12 +1,12 @@
 package com.example.cdpm_7meals.models;
 
 public class UserHelperClass {
-    String firstname, lastname, phonenum , gender, birthday, adress , password;
+    String firstname, lastname, phonenum , gender, birthday, adress , password, image;
 
     public UserHelperClass() {
     }
 
-    public UserHelperClass(String firstname, String lastname, String phonenum, String gender, String birthday, String adress, String password) {
+    public UserHelperClass(String firstname, String lastname, String phonenum, String gender, String birthday, String adress, String password,String image) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.phonenum = phonenum;
@@ -14,6 +14,7 @@ public class UserHelperClass {
         this.birthday = birthday;
         this.adress = adress;
         this.password = password;
+        this.image = image;
     }
 
     public String getFirstname() {
@@ -70,5 +71,13 @@ public class UserHelperClass {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 }

@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.cdpm_7meals.activities.IntroActivity;
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.activities.DeleteAccountActivity;
@@ -38,6 +39,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.text.ParseException;
@@ -62,6 +65,13 @@ public class ProfileFragment extends Fragment {
         tv_fullname = view.findViewById(R.id.full_name);
         img_profile = view.findViewById(R.id.image_profile);
 
+        UserSingleton userSingleton = UserSingleton.getInstance();
+        String phoneNum = userSingleton.getUsername();
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/users/" + phoneNum);
+        Glide.with(this /* Context */)
+                .load(storageReference)
+                .into(img_profile);
+
         list = view.findViewById(R.id.list);
         ProfileAdapter adapter = new ProfileAdapter(getContext(),List,flags);
         list.setAdapter(adapter);
@@ -74,8 +84,6 @@ public class ProfileFragment extends Fragment {
                         Intent myintent = new Intent(getContext(), ProfileActivity.class);
                         ArrayList<String> list = new ArrayList<>();
 
-                        UserSingleton userSingleton = UserSingleton.getInstance();
-                        String phoneNum = userSingleton.getUsername();
                         myRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {

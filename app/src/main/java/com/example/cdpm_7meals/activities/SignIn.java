@@ -19,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cdpm_7meals.R;
+import com.example.cdpm_7meals.data.UserSingleton;
+import com.example.cdpm_7meals.models.FirebaseImageUploader;
 import com.example.cdpm_7meals.models.Image;
 import com.example.cdpm_7meals.models.UserHelperClass;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -40,9 +42,7 @@ public class SignIn extends AppCompatActivity {
 
     TextInputLayout firstname, lastname, phonenum, gender, birthday, address , password;
     private TextView btn_back,btn_showImg;
-
     FirebaseDatabase rootNode = FirebaseDatabase.getInstance();
-    StorageReference reference_img = FirebaseStorage.getInstance().getReference().child("images");
     DatabaseReference reference_users = rootNode.getReference("users");
     private final static int img_request = 1;
     ProgressBar progressBar;
@@ -88,29 +88,34 @@ public class SignIn extends AppCompatActivity {
         btn_signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    UploadFile();
-                    //get all value
-                    String firstName = firstname.getEditText().getText().toString();
-                    String lastName = lastname.getEditText().getText().toString();
-                    String phoneNum = phonenum.getEditText().getText().toString();
-                    String Gender = gender.getEditText().getText().toString();
-                    String Birthday = birthday.getEditText().getText().toString();
-                    String Address = address.getEditText().getText().toString();
-                    String Password = password.getEditText().getText().toString();
-                    UserHelperClass helperClass = new UserHelperClass(firstName, lastName, phoneNum, Gender, Birthday, Address, Password);
-                    reference_users.child(phoneNum).setValue(helperClass);
-                } catch (FileNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
+                //get all value
+                String firstName = firstname.getEditText().getText().toString();
+                String lastName = lastname.getEditText().getText().toString();
+                String phoneNum = phonenum.getEditText().getText().toString();
+                String Gender = gender.getEditText().getText().toString();
+                String Birthday = birthday.getEditText().getText().toString();
+                String Address = address.getEditText().getText().toString();
+                String Password = password.getEditText().getText().toString();
+                String Image = phoneNum;
+
+                FirebaseImageUploader firebaseImageUploader = new FirebaseImageUploader(this);
+                firebaseImageUploader.uploadImageToFireBasFromUri(imageUri,Image);
+                UserHelperClass helperClass = new UserHelperClass(firstName, lastName, phoneNum, Gender, Birthday, Address, Password, Image);
+                reference_users.child(phoneNum).setValue(helperClass);
 
                 startActivity(new Intent(SignIn.this, AppActivity.class));
+
+                UserSingleton userSingleton = UserSingleton.getInstance();
+                userSingleton.setUsername(phoneNum);
+                userSingleton.setNameimg(phoneNum);
             }
         });
 
         btn_chooseImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String nameimg = phonenum + "jpg";
+                nameImg.setText(nameimg);
                 openFileChooser();
             }
         });
@@ -153,38 +158,43 @@ public class SignIn extends AppCompatActivity {
     }
 
     private void UploadFile() throws FileNotFoundException {
-        // Tạo đối tượng FirebaseStorage
-        FirebaseStorage storage = FirebaseStorage.getInstance();
+        if (imageUri != null) {
+            FirebaseStorage storage = FirebaseStorage.getInstance();
+            StorageReference storageRef = storage.getReference();
+            // Lấy tên người dùng
+            String nameImg = firstname.getEditText().getText().toString(); // Thay thế bằng cách lấy tên người dùng từ nơi nào đó
 
-        // Chọn một thư mục trên Firebase Storage để lưu trữ ảnh (vd: "images")
-        StorageReference storageRef = storage.getReference().child("images");
+            // Tạo thư mục con "users" trong thư mục gốc "images"
+            StorageReference usersRef = storageRef.child("images/users");
 
-        // Chọn tên tệp cho ảnh (vd: "my_image.jpg")
-        String imageName = phonenum.getEditText().toString() + ".jpg";
-        StorageReference imageRef = storageRef.child(imageName);
+            // Tạo thư mục con với tên người dùng
+            StorageReference userImagesRef = usersRef.child(nameImg);
 
-        // Chuyển đổi Uri của ảnh thành InputStream
-        InputStream stream = getContentResolver().openInputStream(imageUri);
+            // Tạo reference cho ảnh trong thư mục của người dùng
+            StorageReference imageRef = userImagesRef.child(nameImg + ".jpg");
 
-        // Tải lên ảnh lên Firebase Storage
-        UploadTask uploadTask = imageRef.putStream(stream);
+            // Upload ảnh lên Firebase Storage
+            imageRef.putFile(imageUri)
+                    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            // Ảnh đã được upload thành công
+                            // Lấy URL của ảnh để lưu vào cơ sở dữ liệu hoặc hiển thị
+                            // ...
 
-        uploadTask.addOnSuccessListener(taskSnapshot -> {
-            Handler handler = new Handler();
-            handler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    progressBar.setProgress(0);
-                }
-            }, 5000);
-            // Ảnh đã được tải lên thành công
-            // Lấy URL của ảnh đã tải lên
-            imageRef.getDownloadUrl().addOnSuccessListener(uri -> {
-                String downloadUrl = uri.toString();
-                // Bạn có thể lưu trữ đường dẫn downloadUrl vào Firebase Realtime Database hoặc làm gì đó khác với nó
-            });
-        }).addOnFailureListener(exception -> {
-            Toast.makeText(SignIn.this, "Upload failured", Toast.LENGTH_SHORT).show();
-        });
+                            // Tiếp theo, bạn có thể chuyển đến Activity khác hoặc thực hiện các thao tác khác
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            // Đã xảy ra lỗi trong quá trình upload ảnh
+                            // ...
+                        }
+                    });
+        } else {
+            // Hiển thị thông báo cho người dùng rằng họ cần chọn ảnh trước khi đăng ký
+            // ...
+        }
     }
 }

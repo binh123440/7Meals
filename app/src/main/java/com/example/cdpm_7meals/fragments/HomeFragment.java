@@ -26,6 +26,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.activities.AppActivity;
 import com.example.cdpm_7meals.activities.Login;
@@ -41,6 +42,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -63,7 +66,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view =  inflater.inflate(R.layout.fragment_test, container, false);
+        View view =  inflater.inflate(R.layout.fragment_home, container, false);
 
         rcvProduct = view.findViewById(R.id.frame_product);
         gridLayoutManager = new GridLayoutManager(getContext(),1);
@@ -77,15 +80,18 @@ public class HomeFragment extends Fragment {
         hello_text = view.findViewById(R.id.hello_text);
         UserSingleton userSingleton = UserSingleton.getInstance();
         String phoneNum = userSingleton.getUsername();
+        // Lấy reference của ảnh trên Firebase Storage
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/users/" + phoneNum);
+        Glide.with(this /* Context */)
+                .load(storageReference)
+                .into(img_ava);
         myRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if(snapshot.hasChild(phoneNum)){
                     String name = snapshot.child(phoneNum).child("lastname").getValue(String.class);
-                    String img = snapshot.child(phoneNum).child("image").getValue(String.class);
                     hello_text.setText("Hello " + name);
-                    //Picasso.get().load(img).into(img_ava);
                 }
             }
 
