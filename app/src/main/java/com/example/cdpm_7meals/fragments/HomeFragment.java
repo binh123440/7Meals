@@ -31,6 +31,8 @@ import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.activities.AppActivity;
 import com.example.cdpm_7meals.activities.Login;
 import com.example.cdpm_7meals.adapters.FoodAdapter2;
+import com.example.cdpm_7meals.adapters.HomeProductAdapter;
+import com.example.cdpm_7meals.adapters.ListProductAdapter;
 import com.example.cdpm_7meals.adapters.SlideAdapter;
 import com.example.cdpm_7meals.data.Data;
 import com.example.cdpm_7meals.data.UserSingleton;
@@ -38,10 +40,13 @@ import com.example.cdpm_7meals.models.Food;
 import com.example.cdpm_7meals.models.Product2;
 import com.example.cdpm_7meals.models.SlideItem;
 import com.example.cdpm_7meals.activities.ListProduct;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -61,6 +66,7 @@ public class HomeFragment extends Fragment {
     GridLayoutManager gridLayoutManager;
     ImageView img_ava;
 
+    private HomeProductAdapter adapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,9 +77,9 @@ public class HomeFragment extends Fragment {
         rcvProduct = view.findViewById(R.id.frame_product);
         gridLayoutManager = new GridLayoutManager(getContext(),1);
         rcvProduct.setLayoutManager(gridLayoutManager);
-        FoodAdapter2 foodAdapter = new FoodAdapter2(getListFood());
-        rcvProduct.setAdapter(foodAdapter);
-
+        adapter = new HomeProductAdapter();
+        rcvProduct.setAdapter(adapter);
+        getALlData();
         tv_topTheWeek = view.findViewById(R.id.text_top_the_week);
         img_ava = view.findViewById(R.id.ava_home);
 
@@ -89,6 +95,10 @@ public class HomeFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
+                    return;
+                }
+
                 if(snapshot.hasChild(phoneNum)){
                     String name = snapshot.child(phoneNum).child("lastname").getValue(String.class);
                     hello_text.setText("Hello " + name);
@@ -97,7 +107,9 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
+                    return;
+                }
             }
         });
         bt_all = view.findViewById(R.id.button_all);
@@ -111,8 +123,8 @@ public class HomeFragment extends Fragment {
                 Unclick(bt_rice);
                 Unclick(bt_ham);
                 Unclick(bt_chicken);
+                getALlData();
                 tv_topTheWeek.setText("Top The Week");
-
                 startActivity(new Intent(getContext(), ListProduct.class));
             }
         });
@@ -125,6 +137,7 @@ public class HomeFragment extends Fragment {
                 Unclick(bt_ham);
                 Unclick(bt_chicken);
                 tv_topTheWeek.setText("Rice");
+                getData(1);
             }
         });
 
@@ -136,6 +149,7 @@ public class HomeFragment extends Fragment {
                 Unclick(bt_all);
                 Unclick(bt_chicken);
                 tv_topTheWeek.setText("Hambuger");
+                getData(2);
             }
         });
 
@@ -147,6 +161,7 @@ public class HomeFragment extends Fragment {
                 Unclick(bt_ham);
                 Unclick(bt_all);
                 tv_topTheWeek.setText("Chicken");
+                getData(3);
             }
         });
 
@@ -198,6 +213,71 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    private List<Product2> list = new ArrayList<>();
+    FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+    private void getALlData() {
+        firebaseDatabase.getReference("listProduct")
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+                    @Override
+                    public void onSuccess(DataSnapshot dataSnapshot) {
+
+                        if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
+                            return;
+                        }
+
+
+                        for (DataSnapshot it : dataSnapshot.getChildren()) {
+                            Product2 product = it.getValue(Product2.class);
+                            list.add(product);
+                            Log.d("__image", "onDataChange: "+product.getImage());
+                        }
+                        adapter.setData(list);
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
+                            return;
+                        }
+
+                        Toast.makeText(requireContext(), "Lỗi", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+    private void getData(int key) {
+        list.clear();
+        Query query = firebaseDatabase.getReference("listProduct");
+        query.orderByChild("categoryID").equalTo(key)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
+                            return;
+                        }
+                        for (DataSnapshot it : snapshot.getChildren()) {
+                            Product2 product = it.getValue(Product2.class);
+                            list.add(product);
+                            Log.d("__image", "onDataChange: "+product.getImage());
+                        }
+                        adapter.setData(list);
+                        Log.d("__index", "__index"+list.size());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
+                            return;
+                        }
+                        Log.d("__index", "__index"+error.getMessage().toString());
+                    }
+                });
+    }
+
+
     private List<Food> getListFood()
     {
         List<Food> list = new ArrayList<>();
@@ -214,12 +294,13 @@ public class HomeFragment extends Fragment {
         Button btn = (Button) v;
         int textColor = ContextCompat.getColor(v.getContext(), R.color.yellow2);
         btn.setTextColor(textColor);
-        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_yellow));
+        btn.setBackground(ContextCompat.getDrawable(v.getContext(), R.drawable.bounder_btn_yellow));
     }
     public void handleClickCategory(View v){
         Button btn = (Button) v;
         int textColor = ContextCompat.getColor(v.getContext(), R.color.white);
         btn.setTextColor(textColor);
-        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_category_hover));
+        btn.setBackground(ContextCompat.getDrawable(v.getContext(), R.drawable.bounder_btn_category_hover));
+
     }
 }

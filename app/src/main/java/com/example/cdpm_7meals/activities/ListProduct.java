@@ -92,21 +92,24 @@ public class ListProduct extends AppCompatActivity {
         Button btn = (Button) v;
         int textColor = ContextCompat.getColor(v.getContext(), R.color.yellow2);
         btn.setTextColor(textColor);
-        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_yellow));
+        btn.setBackground(ContextCompat.getDrawable(v.getContext(),R.drawable.bounder_btn_yellow));
     }
     public void handleClickCategory(View v, int key) {
         Button btn = (Button) v;
         int textColor = ContextCompat.getColor(v.getContext(), R.color.white);
         btn.setTextColor(textColor);
-        btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_category_hover));
+        btn.setBackground(ContextCompat.getDrawable(v.getContext(),R.drawable.bounder_btn_category_hover));
         getData(key);
     }
     private void getAllData(){
-       firebaseDatabase.getReference("products")
+       firebaseDatabase.getReference("listProduct")
                .get()
                .addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
                    @Override
                    public void onSuccess(DataSnapshot dataSnapshot) {
+                       if (isFinishing() || isDestroyed()){
+                           return;
+                       }
                        for (DataSnapshot it : dataSnapshot.getChildren()) {
                            Product2 product = it.getValue(Product2.class);
                            list.add(product);
@@ -117,6 +120,9 @@ public class ListProduct extends AppCompatActivity {
                }).addOnFailureListener(new OnFailureListener() {
                    @Override
                    public void onFailure(@NonNull Exception e) {
+                       if (isFinishing() || isDestroyed()){
+                           return;
+                       }
                        Toast.makeText(ListProduct.this, "Lỗi", Toast.LENGTH_SHORT).show();
                    }
                });
@@ -128,12 +134,14 @@ public class ListProduct extends AppCompatActivity {
 
     private void getData(int key) {
         list.clear();
-        Query query = firebaseDatabase.getReference("products");
+        Query query = firebaseDatabase.getReference("listProduct");
         query.orderByChild("categoryID").equalTo(key)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                        if (isFinishing() || isDestroyed()){
+                            return;
+                        }
                         for (DataSnapshot it : snapshot.getChildren()) {
                             Product2 product = it.getValue(Product2.class);
                             list.add(product);
@@ -145,6 +153,9 @@ public class ListProduct extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+                        if (isFinishing() || isDestroyed()){
+                            return;
+                        }
                         Log.d("__index", "__index"+error.getMessage().toString());
                     }
                 });
