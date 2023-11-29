@@ -23,6 +23,8 @@ public class FoodAdapter extends RecyclerView.Adapter<FoodAdapter.FoodViewHolder
         this.ml = ml;
     }
 
+
+
     @NonNull
     @Override
     public FoodViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

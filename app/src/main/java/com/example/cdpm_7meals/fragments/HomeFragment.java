@@ -35,6 +35,7 @@ import com.example.cdpm_7meals.adapters.SlideAdapter;
 import com.example.cdpm_7meals.data.Data;
 import com.example.cdpm_7meals.data.UserSingleton;
 import com.example.cdpm_7meals.models.Food;
+import com.example.cdpm_7meals.models.Product2;
 import com.example.cdpm_7meals.models.SlideItem;
 import com.example.cdpm_7meals.activities.ListProduct;
 import com.google.firebase.database.DataSnapshot;
@@ -55,7 +56,6 @@ public class HomeFragment extends Fragment {
     AppCompatButton bt_all,bt_rice,bt_ham,bt_chicken;
     ViewPager2 viewPager2;
     TextView tv_topTheWeek, hello_text;
-    //implementing auto slide facility
     Handler slideHandler = new Handler();
     RecyclerView rcvProduct;
     GridLayoutManager gridLayoutManager;
@@ -100,8 +100,6 @@ public class HomeFragment extends Fragment {
 
             }
         });
-
-
         bt_all = view.findViewById(R.id.button_all);
         bt_rice = view.findViewById(R.id.button_rice);
         bt_ham = view.findViewById(R.id.button_ham);
@@ -209,12 +207,6 @@ public class HomeFragment extends Fragment {
         list.add(new Food(R.drawable.chicken_burger,"Burger Chicken","A normal burger but the main ingredient is fried chicken",50000,Food.Ham));
         list.add(new Food(R.drawable.fried_chicken,"Fried chicken thighs","Plump chicken thighs are soaked in egg and rolled in breadcrumbs",135000,Food.Chicken));
         list.add(new Food(R.drawable.chicken_satay,"Grilled chicken wings with satay","Grilled with satay gives it a flavor that is both spicy and salty",135000,Food.Chicken));
-        list.add(new Food(R.drawable.fried_chicken_and_fried_rice_1,"Egg fried rice with chicken","Made from fried rice with eggs and served with fried chicken",80000,Food.Rice));
-        list.add(new Food(R.drawable.fried_chicken_and_fried_rice,"Fried rice with fried chicken and fat","Made from rice and chicken coated with fat for grilling",50000,Food.Rice));
-        list.add(new Food(R.drawable.burger,"Beef Burger with special sauce","With a sauce made from a blend of cream and cheese, it creates a burger with a bold Asian flavor",50000,Food.Ham));
-        list.add(new Food(R.drawable.chicken_burger,"Burger Chicken","A normal burger but the main ingredient is fried chicken",50000,Food.Ham));
-        list.add(new Food(R.drawable.fried_chicken,"Fried chicken thighs","Plump chicken thighs are soaked in egg and rolled in breadcrumbs",135000,Food.Chicken));
-        list.add(new Food(R.drawable.chicken_satay,"Grilled chicken wings with satay","Grilled with satay gives it a flavor that is both spicy and salty",135000,Food.Chicken));
         return list;
     }
 
@@ -224,7 +216,6 @@ public class HomeFragment extends Fragment {
         btn.setTextColor(textColor);
         btn.setBackground(getResources().getDrawable(R.drawable.bounder_btn_yellow));
     }
-
     public void handleClickCategory(View v){
         Button btn = (Button) v;
         int textColor = ContextCompat.getColor(v.getContext(), R.color.white);

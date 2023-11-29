@@ -20,8 +20,7 @@
             <ImageView
                 android:id="@+id/img_details_product"
                 android:layout_width="match_parent"
-                android:layout_height="350dp"
-                android:background="@drawable/fried_chicken">
+                android:layout_height="350dp">
 
             </ImageView>
 
@@ -88,9 +87,10 @@
                         android:textColor="@color/white"
                         />
                     <TextView
+                        android:id="@+id/tvTotal"
                         android:layout_width="35dp"
                         android:layout_height="match_parent"
-                        android:text="2"
+                        android:text="1"
                         android:paddingLeft="8dp"
                         android:paddingRight="9dp"
                         android:gravity="center"
