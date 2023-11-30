@@ -1,15 +1,16 @@
 plugins {
     id("com.android.application")
+    id("com.google.gms.google-services")
 }
 
 android {
     namespace = "com.example.cdpm_7meals"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.example.cdpm_7meals"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
@@ -30,9 +31,29 @@ android {
 
 dependencies {
 
+    implementation("com.github.bumptech.glide:glide:4.16.0") // Đảm bảo rằng phiên bản mới nhất được sử dụng
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+    implementation("com.firebaseui:firebase-ui-storage:7.2.0")
+
+    implementation("com.squareup.picasso:picasso:2.8")
+    //viewpager2
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    //Rounded image view
+    implementation("com.makeramen:roundedimageview:2.3.0")
+
+    //Meow Bottom Navigation
+    implementation("com.etebarian:meow-bottom-navigation:1.2.0")
+
+    implementation("com.airbnb.android:lottie:4.1.0")
+
+    implementation("com.squareup.picasso:picasso:2.8")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.firebase:firebase-database:20.3.0")
+    implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.google.firebase:firebase-firestore:24.9.1")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DeleteAccountActivity">
+
+    <RelativeLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/back"
+            android:gravity="center"
+            android:layout_height="70dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELETE ACCOUNT"
+                android:textSize="25dp"
+                android:textStyle="bold"></TextView>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:id="@+id/phimback"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:layout_height="60dp">
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/back_button"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/caretleft"
+                android:layout_width="40dp"
+                android:layout_height="40dp">
+            </androidx.appcompat.widget.AppCompatButton>
+        </RelativeLayout>
+        <ScrollView
+            android:layout_above="@+id/bt"
+            android:layout_marginBottom="10dp"
+            android:layout_below="@id/phimback"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/mainxtk"
+                android:layout_marginTop="30dp"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:id="@+id/noidung"
+                    android:layout_width="match_parent"
+                    android:layout_marginRight="21dp"
+                    android:layout_marginLeft="21dp"
+                    android:layout_height="wrap_content">
+                    <RelativeLayout
+                        android:id="@+id/anhtren"
+                        android:layout_width="match_parent"
+                        android:gravity="center"
+                        android:layout_height="100dp">
+                        <ImageView
+
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/denied_1"
+                            >
+                        </ImageView>
+                    </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/chu"
+                        android:layout_below="@+id/anhtren"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/text1"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:gravity="left"
+                            android:layout_height="wrap_content"
+                            android:text="We are very sorry if you want to leave. If you temporarily do not want to use this account, you can log out and log in again anytime. After deleting the account, you will not be able to:"
+                            >
+                        </TextView>
+                        <TextView
+                            android:id="@+id/text2"
+                            android:layout_below="@+id/text1"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="top"
+                            android:textSize="14sp"
+                            android:layout_height="wrap_content"
+                            android:text="Log in to the 7Meals app with the current account.">
+                            >
+                        </TextView>
+                        <TextView
+                            android:id="@+id/text3"
+                            android:layout_below="@+id/text2"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="top"
+                            android:textSize="14sp"
+                            android:layout_height="wrap_content"
+                            android:text="Access the order history and notifications you received before.">
+                            >
+                        </TextView>
+                        <TextView
+                            android:id="@+id/text4"
+                            android:layout_below="@+id/text3"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="top"
+                            android:textSize="14sp"
+                            android:layout_height="wrap_content"
+                            android:text="Access the payment information and bank account saved on the app.">
+                            >
+                        </TextView>
+                        <TextView
+                            android:id="@+id/text5"
+                            android:layout_below="@+id/text4"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="10dp"
+                            android:gravity="top"
+                            android:textSize="14sp"
+                            android:layout_height="wrap_content"
+                            android:text="If you want to place an order on the 7Meals app, you will need to log in/ sign up with a different account.">
+                            >
+                        </TextView>
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+        <RelativeLayout
+            android:id="@+id/bt"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="5dp"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btxoa"
+                android:layout_width="match_parent"
+                android:layout_height="47dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/update_button"
+                android:text="Contine"
+                android:textColor="@color/white">
+            </androidx.appcompat.widget.AppCompatButton>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

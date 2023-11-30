@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/id_order1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:gravity="left">
+
+            <TextView
+                android:id="@+id/tv_order1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Order ID: OD01"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/tv_date_order1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="Date: 28-09-2003"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/image_history1"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_below="@id/tv_order1"
+                android:layout_marginTop="10dp"
+                android:foreground="@drawable/hinhtron_history_image"
+                app:cardCornerRadius="36dp">
+
+                <ImageView
+                    android:id="@+id/image_history"
+                    android:layout_width="72dp"
+                    android:layout_height="72dp"
+                    android:background="@drawable/fried_chicken"
+                    android:foregroundGravity="left">
+
+                </ImageView>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/name_product1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_order1"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_toRightOf="@+id/image_history1"
+                android:text="Lorem Ipsum"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/black">
+            </TextView>
+            <TextView
+                android:id="@+id/price_product1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_product1"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/image_history1"
+                android:text="Price:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/price_number_product1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_product1"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/price_product1"
+                android:text="$24.00"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/yellow2">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/qtt_product1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_product1"
+                android:layout_toLeftOf="@id/qtt1"
+                android:layout_marginRight="2dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Quantity:">
+
+            </TextView>
+
+            <TextView
+                android:id="@+id/qtt1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name_product1"
+                android:layout_alignParentRight="true"
+                android:textSize="18sp"
+                android:text="1"
+                android:textColor="@color/yellow2"
+                android:textStyle="bold">
+
+            </TextView>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
