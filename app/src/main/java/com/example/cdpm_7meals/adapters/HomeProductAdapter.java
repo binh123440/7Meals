@@ -67,6 +67,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
                 intent.putExtra("name", it.getName());
                 intent.putExtra("dacta", it.getDesc());
                 intent.putExtra("gia", it.getPrice());
+                intent.putExtra("food",it);
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -78,6 +79,7 @@ public class HomeProductAdapter extends RecyclerView.Adapter<HomeProductAdapter.
                 intent.putExtra("name", it.getName());
                 intent.putExtra("dacta", it.getDesc());
                 intent.putExtra("gia", it.getPrice());
+                intent.putExtra("food",it);
                 holder.itemView.getContext().startActivity(intent);
             }
         });

@@ -64,6 +64,7 @@ public class FoodAdapter2 extends RecyclerView.Adapter<FoodAdapter2.FoodViewHold
                 intent.putExtra("name",food.getName());
                 intent.putExtra("dacta",food.getDacta());
                 intent.putExtra("gia",food.getGia());
+
                 holder.itemView.getContext().startActivity(intent);
             }
         });

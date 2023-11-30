@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.cdpm_7meals.R;
+import com.example.cdpm_7meals.models.Food;
+import com.example.cdpm_7meals.models.Product2;
 
 public class DetailsActivity extends AppCompatActivity {
 
@@ -27,7 +30,8 @@ public class DetailsActivity extends AppCompatActivity {
     private ImageView img;
     private TextView ten, mota, gia, tvTotal;
     int count = 1;
-    Long price ;
+    Long price;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,37 +47,33 @@ public class DetailsActivity extends AppCompatActivity {
         tvTotal = findViewById(R.id.tvTotal);
 
         Intent intent = getIntent();
-        if (intent != null) {
-            String imgResource = intent.getStringExtra("imgResource");
-            String name = intent.getStringExtra("name");
-            String des = intent.getStringExtra("dacta");
-             price = intent.getLongExtra("gia", 0);
-            Glide.with(this)
-                    .load(imgResource)
-                    .into(img);
-            ten.setText(name);
-            mota.setText(des);
-            gia.setText(price / 1000 + "." + "000" + " VND");
+        Product2 product = getIntent().getParcelableExtra("food");
+
+        if (product != null) {
+            Log.d("__test", "onCreate: " + product.getPrice());
+
+            Glide.with(this).load(product.getImage()).into(img);
+            ten.setText(product.getName());
+            mota.setText(product.getDesc());
+            gia.setText(product.getPrice() / 1000 + "." + "000" + " VND");
         }
+
 
         back_bt = findViewById(R.id.BackButton);
         back_bt.setOnClickListener(v -> {
             super.onBackPressed();
             onBackPressed();
         });
-
-
-
         DecreseButton.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View v) {
 
-                if (count >0){
+                if (count > 0) {
                     count--;
-                    gia.setText((price*count)/ 1000 +".000 VND");
-                }else {
-                    gia.setText((price*count)+" VND");
+                    gia.setText((price * count) / 1000 + ".000 VND");
+                } else {
+                    gia.setText((price * count) + " VND");
                 }
 
                 tvTotal.setText(String.valueOf(count));
@@ -85,7 +85,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
-                gia.setText((price*count)/ 1000 +".000 VND");
+                gia.setText((price * count) / 1000 + ".000 VND");
                 tvTotal.setText(String.valueOf(count));
 
             }

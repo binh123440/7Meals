@@ -226,8 +226,6 @@ public class HomeFragment extends Fragment {
                         if (getActivity() == null|| getActivity().isFinishing() || getActivity().isDestroyed()){
                             return;
                         }
-
-
                         for (DataSnapshot it : dataSnapshot.getChildren()) {
                             Product2 product = it.getValue(Product2.class);
                             list.add(product);
@@ -276,20 +274,6 @@ public class HomeFragment extends Fragment {
                     }
                 });
     }
-
-
-    private List<Food> getListFood()
-    {
-        List<Food> list = new ArrayList<>();
-        list.add(new Food(R.drawable.fried_chicken_and_fried_rice_1,"Egg fried rice with chicken","Made from fried rice with eggs and served with fried chicken",80000,Food.Rice));
-        list.add(new Food(R.drawable.fried_chicken_and_fried_rice,"Fried rice with fried chicken and fat","Made from rice and chicken coated with fat for grilling",50000,Food.Rice));
-        list.add(new Food(R.drawable.burger,"Beef Burger with special sauce","With a sauce made from a blend of cream and cheese, it creates a burger with a bold Asian flavor",50000,Food.Ham));
-        list.add(new Food(R.drawable.chicken_burger,"Burger Chicken","A normal burger but the main ingredient is fried chicken",50000,Food.Ham));
-        list.add(new Food(R.drawable.fried_chicken,"Fried chicken thighs","Plump chicken thighs are soaked in egg and rolled in breadcrumbs",135000,Food.Chicken));
-        list.add(new Food(R.drawable.chicken_satay,"Grilled chicken wings with satay","Grilled with satay gives it a flavor that is both spicy and salty",135000,Food.Chicken));
-        return list;
-    }
-
     public void Unclick(View v){
         Button btn = (Button) v;
         int textColor = ContextCompat.getColor(v.getContext(), R.color.yellow2);
