@@ -37,7 +37,7 @@
                         android:layout_marginTop="20dp"
                         android:layout_marginBottom="10dp"
                         android:foreground="@drawable/hinhtron_homepage_avatar"
-                        app:cardBackgroundColor="@color/green"
+                        app:cardBackgroundColor="@color/white"
                         app:cardCornerRadius="25dp">
 
                         <ImageView

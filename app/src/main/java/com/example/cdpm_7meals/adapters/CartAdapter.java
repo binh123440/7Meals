@@ -7,48 +7,51 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.bumptech.glide.Glide;
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.components.ListViewComponent;
 import com.example.cdpm_7meals.components.DiaLogComponent;
 import com.example.cdpm_7meals.models.CartItem;
 import com.example.cdpm_7meals.models.Currency;
+import com.example.cdpm_7meals.models.ItemCart;
 import com.google.android.material.imageview.ShapeableImageView;
 
 import java.util.ArrayList;
+import java.util.List;
 
-public class CartAdapter extends ArrayAdapter<CartItem> {
+public class CartAdapter extends ArrayAdapter<ItemCart> {
     private CartAdapter.OnItemChangedListener onItemChangedListener;
     private ListViewComponent parent;
-    private ArrayList<CartItem> cartItems;
+    private List<ItemCart> cartItems;
+    ItemCart itemCart;
 
 
-    public CartAdapter(@NonNull Context context, @NonNull ArrayList<CartItem> items) {
-        super(context, R.layout.cart_item, items);
-        this.cartItems = items;
+    public CartAdapter(@NonNull Context context, @NonNull List<ItemCart> itemCart) {
+        super(context, 0, itemCart);
     }
 
     @SuppressLint("DefaultLocale")
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        this.parent = (ListViewComponent) parent;
-        CartItem product = getItem(position);
+
         if(convertView == null) {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.cart_item, parent,false);
         }
+        itemCart = getItem(position);
+        ImageView productImage = convertView.findViewById(R.id.productImageSrc);
+        Glide.with(getContext()).load(itemCart.getProduct().getImage()).into(productImage);
 
-        ((ShapeableImageView) convertView.findViewById(R.id.productImageSrc)).setImageResource(
-                getContext().getResources().getIdentifier(product.getImageSrc(), "drawable", getContext().getPackageName())
-        );
-        ((TextView) convertView.findViewById(R.id.productName)).setText(product.getName());
-        ((TextView) convertView.findViewById(R.id.productDesc)).setText(product.getDesc());
-        ((TextView) convertView.findViewById(R.id.quantity)).setText(String.valueOf(product.getQuantity()));
-        ((TextView) convertView.findViewById(R.id.productPrice)).setText(Currency.format(product.getPrice()));
+        ((TextView) convertView.findViewById(R.id.productName)).setText(itemCart.getProduct().getName());
+        ((TextView) convertView.findViewById(R.id.productDesc)).setText(itemCart.getProduct().getName());
+        ((TextView) convertView.findViewById(R.id.quantity)).setText(String.valueOf(itemCart.getQuantity()));
+        ((TextView) convertView.findViewById(R.id.productPrice)).setText(Currency.format(itemCart.getProduct().getPrice()));
 
         convertView.findViewById(R.id.delete_button).setOnClickListener(v -> {
             confirmDelete(position);
@@ -65,14 +68,10 @@ public class CartAdapter extends ArrayAdapter<CartItem> {
     }
 
     @Override
-    public void remove(@Nullable CartItem object) {
+    public void remove(@Nullable ItemCart object) {
         super.remove(object);
         this.parent.setFullHeight();
         notifyDataSetChanged();
-    }
-
-    public ArrayList<CartItem> getCartItems() {
-        return  this.cartItems;
     }
 
     public void setOnItemChangedListener(CartAdapter.OnItemChangedListener listener) {

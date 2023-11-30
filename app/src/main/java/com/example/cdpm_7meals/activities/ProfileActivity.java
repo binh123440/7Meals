@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.bumptech.glide.Glide;
 import com.example.cdpm_7meals.R;
 import com.example.cdpm_7meals.adapters.ProfileAdapter2;
 import com.example.cdpm_7meals.data.UserSingleton;
@@ -20,6 +21,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -43,6 +46,14 @@ public class ProfileActivity extends AppCompatActivity{
         img_profile = findViewById(R.id.image_profile);
 
         ListValue = new String[6];
+
+        UserSingleton userSingleton = UserSingleton.getInstance();
+        String phoneNum = userSingleton.getUsername();
+        // Lấy reference của ảnh trên Firebase Storage
+        StorageReference storageReference = FirebaseStorage.getInstance().getReference().child("images/users/" + phoneNum);
+        Glide.with(this /* Context */)
+                .load(storageReference)
+                .into(img_profile);
 
         myRef.child("users").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
