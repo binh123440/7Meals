@@ -28,9 +28,9 @@ public class DetailsActivity extends AppCompatActivity {
     private AppCompatButton DecreseButton;
 
     private ImageView img;
-    private TextView ten, mota, gia, tvTotal;
+    private TextView name, desc, price, tvTotal;
     int count = 1;
-    Long price;
+    Long Price;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -39,9 +39,9 @@ public class DetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_details);
 
         img = findViewById(R.id.img_details_product);
-        ten = findViewById(R.id.name_product);
-        mota = findViewById(R.id.description_product);
-        gia = findViewById(R.id.value_price_product);
+        name = findViewById(R.id.name_product);
+        desc = findViewById(R.id.description_product);
+        price = findViewById(R.id.value_price_product);
         IncreseButton = findViewById(R.id.IncreseButton);
         DecreseButton = findViewById(R.id.DecreseButton);
         tvTotal = findViewById(R.id.tvTotal);
@@ -53,9 +53,10 @@ public class DetailsActivity extends AppCompatActivity {
             Log.d("__test", "onCreate: " + product.getPrice());
 
             Glide.with(this).load(product.getImage()).into(img);
-            ten.setText(product.getName());
-            mota.setText(product.getDesc());
-            gia.setText(product.getPrice() / 1000 + "." + "000" + " VND");
+            name.setText(product.getName());
+            desc.setText(product.getDesc());
+            Price = product.getPrice();
+            price.setText(Price / 1000 + "." + "000" + " VND");
         }
 
 
@@ -71,9 +72,9 @@ public class DetailsActivity extends AppCompatActivity {
 
                 if (count > 0) {
                     count--;
-                    gia.setText((price * count) / 1000 + ".000 VND");
+                    price.setText((Price * count) / 1000 + ".000 VND");
                 } else {
-                    gia.setText((price * count) + " VND");
+                    price.setText((Price * count) + " VND");
                 }
 
                 tvTotal.setText(String.valueOf(count));
@@ -85,7 +86,7 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 count++;
-                gia.setText((price * count) / 1000 + ".000 VND");
+                price.setText((Price * count) / 1000 + ".000 VND");
                 tvTotal.setText(String.valueOf(count));
 
             }
