@@ -70,16 +70,11 @@ public class DetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (count > 0) {
+                if (count > 1) {
                     count--;
                     price.setText((Price * count) / 1000 + ".000 VND");
-                } else {
-                    price.setText((Price * count) + " VND");
                 }
-
                 tvTotal.setText(String.valueOf(count));
-
-
             }
         });
         IncreseButton.setOnClickListener(new View.OnClickListener() {
